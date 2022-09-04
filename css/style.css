@@ -1,85 +1,83 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+body {
     margin: 0;
     padding: 0;
 }
 
+*{
+    font-family: 'Roboto', sans-serif; 
+}
+
 a {
     text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+a:hover{
+    opacity: 0.7;
 }
 
-html, body {
-    height: 100%;
+.header-logo{
+    font-size: 24px;
+    text-transform: capitalize;
 }
 
-/* Div do menu */
-.menu {
-    width: 100%;
-    margin: 30px auto;
-    text-align: center;
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #23232e;
+    height: 9vh;
+}
+/* Imagem apenas para preencher o conteúdo da página*/
+main{
+    background: url(imagem_casual.jpg) no-repeat center center;
+    background-size: cover;
+    height: 91vh;
 }
 
-.menu>h1 {
-    color: #c72828;
-    margin-bottom: 20px;
-    font-family: "Consolas";
+.header-list{
+    list-style: none;
+    display: flex;
 }
 
-.menu > a {
-    color: red;
-    padding: 5px;
-    margin: 0 10px;
-    font-size: 20px;
-    border: 2px solid blueviolet;
-    border-radius: 10px;
+.header-list > li{
+    margin-left: 40px;
 }
 
-/* Div de conteúdo*/
-.content {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+.menu-hamburguer{
+    display: none;
+    cursor: pointer;
 }
 
-.content > p {
-    color: brown;
-    text-align: center;
-    font-size: 25px;
-    font-weight: 600;
+.menu-hamburguer > div{
+    width: 32px;
+    height: 2px;
+    background: white;
+    margin: 7px;
 }
-
-/* Lista */
-.lista {
-    list-style-position: inside;
-    list-style-type: disc;
-    text-align: center;
-    background-color: bisque;
-    width: 640px;
-    margin: 0 auto;
-}
-
-.lista > li {
-    font-size: 20px;
-    color: blue;
-    display: inline-block;
-}
-
-/* Artigo */
-.center {
-    box-sizing: content-box;
-    width: 1280px;
-    margin: 0 auto;
-    background-color: rgb(210, 203, 203);
-    padding: 0 10px;
-    border-radius: 10px;
-}
-.article {
-    font-family: Consolas;
-    color: rgb(243, 65, 1);
-    margin-top: 30px;
-    margin-right: -4px;
-    display: inline-block;
-    width: 640px;
-}
-
-.article > p {
-    font-size: 18px;
+/* Reponsividade */
+@media (max-width: 960px) {
+    /* body{
+        overflow-x: hidden;
+    } */
+    .menu-hamburguer{
+        display: unset;
+    }
+    .header-list{
+        position: absolute;
+        top: 7vh;
+        right: 0;
+        width: 50vw;
+        height: 90vh;
+        background: #23232e;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        /* transform: translateX(100%); */
+    }
+    .header-list > li{
+        margin-left: 0;
+    }
 }
