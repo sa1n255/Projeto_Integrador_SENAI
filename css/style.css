@@ -32,7 +32,7 @@ nav{
 }
 /* Imagem apenas para preencher o conteúdo da página*/
 main{
-    background: url(imagem_casual.jpg) no-repeat center center;
+    background: url(../imagens/imagem_casual.jpg) no-repeat center center;
     background-size: cover;
     height: 91vh;
 }
