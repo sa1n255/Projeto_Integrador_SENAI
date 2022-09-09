@@ -101,6 +101,9 @@ ul{
     font-size: 18px;
     position: relative;
 }
+.footer-column > p{
+    color: white;
+}
 
 .footer-column h3::before{
     content: '';
