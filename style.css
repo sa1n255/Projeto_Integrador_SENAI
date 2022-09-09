@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+/* Definições globais */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    font-family: 'Roboto', sans-serif; 
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+a:hover{
+    opacity: 0.7;
+}
+
+/* Header do site */
+
+.header-logo{
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #23232e;
+    height: 9vh;
+}
+
+.header-list{
+    list-style: none;
+    display: flex;
+}
+
+.header-list > li{
+    margin-left: 40px;
+}
+
+.menu-hamburguer{
+    display: none;
+    cursor: pointer;
+}
+
+.menu-hamburguer > div{
+    width: 32px;
+    height: 2px;
+    background: white;
+    margin: 7px;
+}
+
+/* Imagem apenas para preencher o conteúdo da página*/
+main{
+    background: url(../imagens/imagem_casual.jpg) no-repeat center center;
+    background-size: cover;
+    height: 91vh;
+}
+
+/* Rodapé do Site */
+footer{
+    background:#0e0e13;
+    padding: 70px 0;
+    
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.footer-container{
+    max-width: 1170px;
+    margin: auto;
+    
+    
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column{
+    width: 25%;
+    padding: 0 15px;
+    
+}
+
+.footer-column > h3{
+    color: white;
+    margin-bottom: 35px;
+    font-size: 18px;
+    position: relative;
+}
+.footer-column > p{
+    color: white;
+}
+
+.footer-column h3::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #0a20a1;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+ }
+
+.footer-column ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-column ul li a{
+    font-size: 16px;
+    display: block;
+}
+
+.footer-column ul li a:hover{
+    padding-left: 3px;
+}
+
+/* Reponsividade */
+@media (max-width: 960px) {
+    /* body{
+        overflow-x: hidden;
+    } */
+    .menu-hamburguer{
+        display: unset;
+    }
+    .header-list{
+        position: absolute;
+        top: 7vh;
+        right: 0;
+        width: 50vw;
+        height: 90vh;
+        background: #23232e;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        /* transform: translateX(100%); */
+    }
+    .header-list > li{
+        margin-left: 0;
+    }
+}
