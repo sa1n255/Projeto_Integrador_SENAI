@@ -1,0 +1,1 @@
+insert into médico (crm,nome,rg,cpf,telefone,sangue,nascimento,especialidade) values (3, "henrique", 100, 12, 192999, "A", "2018-12-03", 194);
