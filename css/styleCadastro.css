@@ -11,6 +11,8 @@
   width: auto;
   max-width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .titulo {
@@ -19,22 +21,58 @@
 }
 
 .formulario {
-  padding: 30px;
+  padding: 20px;
   padding-left: 20px;
-}
-.form-controle {
-  margin-bottom: 10px;
-  padding-bottom: 20px;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.form-controle label {
+.form-esquerda {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  padding-bottom: 20px;
+}
+
+.form-direita {
+  padding-right: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 800px;
+}
+.butao {
+  display: flex;
+  width: max-content;
+}
+/* 
+  AINDA EM TESTE...
+.form-controle {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+*/
+.form-direita label {
   display: inline-block;
   margin-bottom: 5px;
 }
 
-.form-controle input {
-  border: 2px solid #f0f0f0;
+.form-direita input {
+  border: 2px solid #1d1a1a;
   display: block;
   border-radius: 10px;
   font-size: 14px;
@@ -42,14 +80,44 @@
   padding: 10px;
 }
 
-.form-controle i {
+.form-direita i {
   position: absolute;
   top: 45px;
   right: 10px;
   visibility: hidden;
 }
 
-.form-controle small {
+.form-direita small {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+/*////////////////////////////////////////*/
+
+.form-esquerda label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-esquerda input {
+  border: 2px solid #1d1a1a;
+  display: block;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px;
+}
+
+.form-esquerda i {
+  position: absolute;
+  top: 45px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.form-esquerda small {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -67,7 +135,7 @@
 }
 
 /* Error and Success */
-.form-controle.success input {
+/*.form-controle.success input {
   border-color: #2ecc71;
 }
 
@@ -89,3 +157,4 @@
   visibility: visible;
   color: #e74c3c;
 }
+*/

@@ -9,8 +9,7 @@
     <link rel= "stylesheet" href="css/stylePesquisa.css"/>
 
     <title>Hospitais Proximos</title>
-
-
+    
   <body>
     <header>
       <nav>
@@ -22,7 +21,7 @@
         </div>
         <ul class="header-list">
           <!-- Página principal -->
-          <li><a title="Ir para a Página Inicial" href="#">Home</a></li>
+          <li><a title="Ir para a Página Inicial" href="index.html">Home</a></li>
           <!-- Página que Busca por hospitais da Região -->
           <li>
             <a
@@ -48,44 +47,56 @@
         </ul>
       </nav>
     </header>
-
     <!--Referência de Buscador: https://www.medicmais.com.br -->
     <!--Referencia de Footer: https://cartadeservicos.angra.rj.gov.br/servico.asp?c=705-->
-    <div class="conteinerP">
-        <div id="titulo">
-            <h1>Unidade Mais proxima</h1>
+      
+      <div class="container">
+        <div class="titulo">
+          <h2>Hospitais Próximos</h2>
         </div>
-        <form action="post" id="formularioP" class="formulario">
-            
-            <div class="formulario">
-                <label for="nome">Estado</label>
-                <select autofocus id="EstadoS">
-                    <option value="">Selecione seu Estado</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="SP">São Paulo</option>
-                </select>
+
+      <form id="formulario" class="formulario">
+        
+        <div>
+        <label class="formulario">Selecione o municipio</label>
+        <select id="select" class="formulario">
+          <option selected>Selecione o municipio</option>
+          <option value="1">Um</option>
+          <option value="2">Dois</option>
+          <option value="3">Três</option>
+        </select>
+        </div>
+
+        <div>
+          <label class="formulario">Selecione a cidade</label>
+          <select id="select" class="formulario">
+            <option selected>Selecione a cidade</option>
+            <option value="1">Um</option>
+            <option value="2">Dois</option>
+            <option value="3">Três</option>
+          </select>
+          </div>
+
+
+          <div>
+            <label class="formulario">Selecione o especialista</label>
+            <select id="select" class="formulario">
+              <option selected>Selecione o especialista</option>
+              <option value="1">Um</option>
+              <option value="2">Dois</option>
+              <option value="3">Três</option>
+            </select>
             </div>
 
             <div class="formulario">
-                <label for="municipio">Municipio</label>
-                <select id="MunicipioS">
-                    <option value="">Selecione seu Município</option>
-                    <option>Duque de Caxias</option>
-                    <option>Nova Iguaçu</option>
-                </select>
+              <button id="butao" type="submit">Procurar</button>
             </div>
+      </form>
+      </div>
 
-            <div class="formulario">
-                <label for="especialidade">Especialidade</label>
-                <select id="especialidade">
-                    <option value="">Selecione sua especialidade</option>
-                    <option value="Cardiologista">Cardiologista</option>
-                </select>
-            </div>
 
-        </form>
 
-    </div>
+
 
     <footer>
       <div class="footer-container">
