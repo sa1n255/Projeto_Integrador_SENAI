@@ -8,6 +8,7 @@ const connection = mysql.createConnection({
   password: "123456",
   database: "hospitalproject",
 });
+
 //TESTE DE CONEXÃO
 connection.connect(function (err) {
   if (err) {
