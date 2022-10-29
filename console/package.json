@@ -1,0 +1,15 @@
+{
+  "name": "mysql-youtube",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Conexão.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^2.2.5"
+  }
+}
