@@ -40,9 +40,30 @@ nav{
     display: flex;
 }
 
+
 .header-list > li{
     margin-left: 40px;
 }
+
+.header-list > li {
+	display: inline-flex;
+	padding: 14px;
+	margin-left: 2px;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.3s linear all;
+	user-select: none;
+}
+.header-list > li:hover {
+	color: red;
+	box-shadow: 0 50px 5px rgba(249, 249, 249, 0.293) inset;
+}
+
+.vaipaciente>li::after{
+    
+
+}
+
 
 .menu-hamburguer{
     display: none;
