@@ -36,7 +36,7 @@ app.get('/cadastro', (req, res) => {
 
 app.get('/pesquisa', (req, res) => {
     res.render('pesquisa', {});
-    res.send(`<script>document.title = ${req.params.pesquisa}</script>`);
+    // res.send(`<script>document.title = ${req.params.pesquisa}</script>`);
     
 });
 
@@ -46,7 +46,7 @@ app.get('/integrantes', (req, res) => {
 
 app.get('/documentacao-do-projeto', (req, res) => {
     //res.render('documentacao-do-projeto');
-    res.send('Ainda não está pronto');
+    res.send('Ainda não está pronta');
 });
 
 app.get('/:slug', (req, res) => {
