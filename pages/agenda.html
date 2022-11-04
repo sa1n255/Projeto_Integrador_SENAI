@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/style.css" />
+    <link rel="stylesheet" href="/public/styleAgente.css" />
+    <title>Agenda</title>
+</head>
+
+<body>
+    <%- include('partials/header.html') %>
+    <div class="container">
+        <div class="titulo">
+            <h2>Agenda do Hospital</h2>
+        </div>
+
+        <div class="titulo-filtro">
+            <h3>Identifique a Identificação da Consultas</h3>
+        </div>
+        <form id="formulario" class="formulario">
+            <div class="form">
+                <label for="nome"> ID </label>
+                <input type="text" id="id" placeholder="Identificação da consulta" />
+                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <small>mesagem de erro</small>
+            </div>
+
+            <button type="submit" id="butao">Enviar</button>
+        </form>
+    </div>
+    <div id="resultado">
+        <h2>Resultados</h2>
+    </div>
+
+<%- include('partials/footer.html') %>
+    <script src="javascript/Appagenda.js"></script>
+</body>
+
+</html>

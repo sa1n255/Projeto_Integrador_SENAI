@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/style.css" />
+    <link rel="stylesheet" href="/public/stylePesquisa.css" />
+
+    <title>Hospitais Proximos</title>
+
+<body>
+    <%- include('partials/header.html') %>
+
+    <div class="container">
+        <div class="titulo">
+            <h2>Hospitais Próximos</h2>
+        </div>
+
+        <form id="formulario" class="formulario">
+
+            <div>
+                <label class="formulario">Selecione o municipio</label>
+                <select id="select" class="formulario">
+                    <option selected>Selecione o municipio</option>
+                    <option value="1">Um</option>
+                    <option value="2">Dois</option>
+                    <option value="3">Três</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="formulario">Selecione a cidade</label>
+                <select id="select" class="formulario">
+                    <option selected>Selecione a cidade</option>
+                    <option value="1">Um</option>
+                    <option value="2">Dois</option>
+                    <option value="3">Três</option>
+                </select>
+            </div>
+
+
+            <div>
+                <label class="formulario">Selecione o especialista</label>
+                <select id="select" class="formulario">
+                    <option selected>Selecione o especialista</option>
+                    <option value="1">Um</option>
+                    <option value="2">Dois</option>
+                    <option value="3">Três</option>
+                </select>
+            </div>
+
+            <div class="formulario">
+                <button id="butao" type="submit">Procurar</button>
+            </div>
+        </form>
+    </div>
+    <%- include('partials/footer.html') %>
+
+</body>
+
+</html>
