@@ -4,59 +4,59 @@ CREATE DATABASE IF NOT EXISTS projetointegrador CHARACTER SET utf8mb4 COLLATE ut
 USE projetointegrador;
 
 # Criação das tabelas
-CREATE TABLE IF NOT EXISTS pacientes (cpf numeric(11) unique, 
-nome varchar(100) NOT NULL, 
-nascimento date NOT NULL, 
-endereço varchar(200) NOT NULL, 
-sangue char(1) NOT NULL, 
-email varchar(100) NOT NULL, 
-telefone int NOT NULL,
-primary key (cpf)
+CREATE TABLE IF NOT EXISTS pacientes (cpf NUMERIC(11) UNIQUE, 
+nome VARCHAR(100) NOT NULL, 
+nascimento DATE NOT NULL, 
+endereço VARCHAR(200) NOT NULL, 
+sangue CHAR(1) NOT NULL, 
+email VARCHAR(100) NOT NULL, 
+telefone INT NOT NULL,
+PRIMARY KEY (cpf)
 );
 
 
 CREATE TABLE IF NOT EXISTS médico (
-crm int UNIQUE NOT NULL, 
-nome varchar(100) NOT NULL, 
-rg int NOT NULL, 
-cpf numeric(11) UNIQUE NOT NULL,
-telefone int NOT NULL, 
-sangue char(1) NOT NULL, 
-nascimento date NOT NULL, 
-especialidade int NOT NULL, 
-primary key (crm)
+crm INT UNIQUE NOT NULL, 
+nome VARCHAR(100) NOT NULL, 
+rg INT NOT NULL, 
+cpf NUMERIC(11) UNIQUE NOT NULL,
+telefone INT NOT NULL, 
+sangue CHAR(1) NOT NULL, 
+nascimento DATE NOT NULL, 
+especialidade INT NOT NULL, 
+PRIMARY KEY (crm)
 );
 
-CREATE TABLE IF NOT EXISTS hospital (cnpj int, 
-nome varchar(100), 
-endereço varchar(200), 
-primary key (cnpj)
+CREATE TABLE IF NOT EXISTS hospital (cnpj INT, 
+nome VARCHAR(100), 
+endereço VARCHAR(200), 
+PRIMARY KEY (cnpj)
 );
 
-CREATE TABLE IF NOT EXISTS especialidade (id int AUTO_INCREMENT, 
-nome varchar (30), 
-primary key (id)
+CREATE TABLE IF NOT EXISTS especialidade (id INT AUTO_INCREMENT, 
+nome VARCHAR (30), 
+PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS agenda (id int AUTO_INCREMENT, 
-crm int, 
-cnpj int, 
-especialidade int,
-endereço varchar(200), 
-dia date, 
-horário timestamp, 
-primary key (id)
+CREATE TABLE IF NOT EXISTS agenda (id INT AUTO_INCREMENT, 
+crm INT, 
+cnpj INT, 
+especialidade INT,
+endereço VARCHAR(200), 
+dia DATE, 
+horário TIMESTAMP, 
+PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS consulta (id int AUTO_INCREMENT, 
-cpf numeric(11) UNIQUE, 
-cnpj int,
-dia date, 
-diagnóstico varchar(100), 
-medicamento varchar(100), 
-exame varchar(100),
-observação varchar(100), 
-primary key (id)
+CREATE TABLE IF NOT EXISTS consulta (id INT AUTO_INCREMENT, 
+cpf NUMERIC(11) UNIQUE, 
+cnpj INT,
+dia DATE, 
+diagnóstico VARCHAR(100), 
+medicamento VARCHAR(100), 
+exame VARCHAR(100),
+observação VARCHAR(100), 
+PRIMARY KEY (id)
 );
 
 # Alters

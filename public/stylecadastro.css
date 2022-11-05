@@ -4,15 +4,15 @@
   font-family: "Roboto", sans-serif;
 }
 
-.container {
+.formulario-cadastro {
   background-color: #fafafa;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  width: auto;
-  max-width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 1500px;
+  max-height: 800px;
 }
 
 .titulo {
@@ -20,40 +20,38 @@
   padding: 20px;
   overflow: hidden;
 }
-.titulo select{
-    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #eee;
-    /* Imagem de fundo (Seta) */
-    background-position: 205px center;
-    /*Posição da imagem do background*/
-    
-    /* Tamanho do select, maior que o tamanho da div "div-select" */
-    height: 80px;
-    /* altura do select, importante para que tenha a mesma altura em todo os navegadores */
-    font-family: Arial, Helvetica, sans-serif;
-    /* Fonte do Select */
-    font-size: 30px;
-    /* Tamanho da Fonte */
-    padding: 13px 20px 13px 12px;
-    /* Configurações de padding para posicionar o texto no campo */
-    color: rgb(3, 2, 2);
-    /* Cor da Fonte */
-    text-indent: 0.01px;
-    /* Remove seta padrão do FireFox */
-    text-overflow: "";
-    
-    outline: #0a20a1;
+.titulo select {
+  background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif)
+    no-repeat #eee;
+  /* Imagem de fundo (Seta) */
+  background-position: 205px center;
+  /*Posição da imagem do background*/
+
+  /* Tamanho do select, maior que o tamanho da div "div-select" */
+  height: 80px;
+  /* altura do select, importante para que tenha a mesma altura em todo os navegadores */
+  font-family: Arial, Helvetica, sans-serif;
+  /* Fonte do Select */
+  font-size: 30px;
+  /* Tamanho da Fonte */
+  padding: 13px 20px 13px 12px;
+  /* Configurações de padding para posicionar o texto no campo */
+  color: rgb(3, 2, 2);
+  /* Cor da Fonte */
+  text-indent: 0.01px;
+  /* Remove seta padrão do FireFox */
+  text-overflow: "";
+
+  outline: #0a20a1;
 }
 
 /* Remove seta padrão do FireFox */
 .select select::-ms-expand {
-    display: none;
+  display: none;
 }
 /* Remove seta padrão do IE*/
 
-
-
-
-.formulario {
+.formulario-cadastro {
   padding: 20px;
   padding-left: 20px;
   display: flex;
@@ -75,10 +73,7 @@
   padding-bottom: 20px;
   width: 800px;
 }
-.butao {
-  display: flex;
-  width: max-content;
-}
+
 /* 
   AINDA EM TESTE...
 .form-controle {
@@ -102,6 +97,7 @@
 .form-direita label {
   display: inline-block;
   margin-bottom: 5px;
+  width: 200px;
 }
 
 .form-direita input {
@@ -109,7 +105,7 @@
   display: block;
   border-radius: 10px;
   font-size: 14px;
-  width: 100%;
+  width: 600px;
   padding: 10px;
 }
 
@@ -132,6 +128,7 @@
 .form-esquerda label {
   display: inline-block;
   margin-bottom: 5px;
+  width: 200px;
 }
 
 .form-esquerda input {
@@ -139,7 +136,7 @@
   display: block;
   border-radius: 10px;
   font-size: 14px;
-  width: 100%;
+  width: 600px;
   padding: 10px;
 }
 
@@ -157,12 +154,12 @@
   visibility: hidden;
 }
 
-.formulario button {
+.formulario-cadastro button {
   background-color: #0a20a1;
   border: 2px solid #0a20a1;
   color: #fff;
   font-size: 20px;
-  width: 100%;
+  width: 630px;
   border-radius: 10px;
   padding: 10px;
 }
@@ -191,3 +188,7 @@
   color: #e74c3c;
 }
 */
+
+.header-list #cadastro a{
+  color: royalblue;
+}

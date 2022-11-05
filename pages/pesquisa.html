@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/public/images/icons/arpa_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/public/style.css" />
     <link rel="stylesheet" href="/public/stylePesquisa.css" />
 
@@ -14,16 +13,15 @@
 <body>
     <%- include('partials/header.html') %>
 
-    <div class="container">
-        <div class="titulo">
+        <div class="titulo-pesquisa">
             <h2>Hospitais Próximos</h2>
         </div>
 
-        <form id="formulario" class="formulario">
+        <form id="formulario-pesquisa" class="formulario-pesquisa">
 
             <div>
-                <label class="formulario">Selecione o municipio</label>
-                <select id="select" class="formulario">
+                <label class="formulario-pesquisa">Selecione o municipio</label>
+                <select id="select" class="formulario-pesquisa">
                     <option selected>Selecione o municipio</option>
                     <option value="1">Um</option>
                     <option value="2">Dois</option>
@@ -32,8 +30,8 @@
             </div>
 
             <div>
-                <label class="formulario">Selecione a cidade</label>
-                <select id="select" class="formulario">
+                <label class="formulario-pesquisa">Selecione a cidade</label>
+                <select id="select" class="formulario-pesquisa">
                     <option selected>Selecione a cidade</option>
                     <option value="1">Um</option>
                     <option value="2">Dois</option>
@@ -43,8 +41,8 @@
 
 
             <div>
-                <label class="formulario">Selecione o especialista</label>
-                <select id="select" class="formulario">
+                <label class="formulario-pesquisa">Selecione o especialista</label>
+                <select id="select" class="formulario-pesquisa">
                     <option selected>Selecione o especialista</option>
                     <option value="1">Um</option>
                     <option value="2">Dois</option>
@@ -52,11 +50,11 @@
                 </select>
             </div>
 
-            <div class="formulario">
+            <div class="formulario-pesquisa">
                 <button id="butao" type="submit">Procurar</button>
             </div>
         </form>
-    </div>
+
     <%- include('partials/footer.html') %>
 
 </body>
