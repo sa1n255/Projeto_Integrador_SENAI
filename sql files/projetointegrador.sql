@@ -15,7 +15,7 @@ PRIMARY KEY (cpf)
 );
 
 
-CREATE TABLE IF NOT EXISTS médico (
+CREATE TABLE IF NOT EXISTS medico (
 crm INT UNIQUE NOT NULL, 
 nome VARCHAR(100) NOT NULL, 
 rg INT NOT NULL, 
@@ -60,10 +60,10 @@ PRIMARY KEY (id)
 );
 
 # Alters
-ALTER TABLE médico ADD FOREIGN KEY (especialidade) REFERENCES especialidade (id);
-ALTER TABLE agenda ADD FOREIGN key (crm) REFERENCES médico (crm);
+ALTER TABLE medico ADD FOREIGN KEY (especialidade) REFERENCES especialidade (id);
+ALTER TABLE agenda ADD FOREIGN key (crm) REFERENCES medico (crm);
 ALTER TABLE agenda ADD FOREIGN key (especialidade) REFERENCES especialidade (id);
 ALTER TABLE agenda ADD FOREIGN key (cnpj) REFERENCES hospital (cnpj);
 
 # Inserts
-INSERT INTO médico (crm,nome,rg,cpf,telefone,sangue,nascimento,especialidade) VALUES (3, "henrique", 100, 12, 192999, "A", "2018-12-03", 194);
+INSERT INTO medico (crm,nome,rg,cpf,telefone,sangue,nascimento,especialidade) VALUES (3, "henrique", 100, 12, 192999, "A", "2018-12-03", 194);
