@@ -4,60 +4,64 @@ CREATE DATABASE IF NOT EXISTS projetointegrador CHARACTER SET utf8mb4 COLLATE ut
 USE projetointegrador;
 
 # Criação das tabelas
-CREATE TABLE IF NOT EXISTS pacientes (cpf NUMERIC(11) UNIQUE, 
-nome VARCHAR(100) NOT NULL, 
-nascimento DATE NOT NULL, 
-endereco VARCHAR(200) NOT NULL, 
-sangue CHAR(1) NOT NULL, 
-email VARCHAR(100) NOT NULL, 
-telefone INT NOT NULL,
-PRIMARY KEY (cpf)
+CREATE TABLE IF NOT EXISTS pacientes (
+`cpf` CHAR(14) UNIQUE NOT NULL PRIMARY KEY,
+`rg` VARCHAR(20) NOT NULL,
+`nome` VARCHAR(255) NOT NULL,
+`sexo` ENUM('M', 'F'), 
+`telefone` INT NOT NULL,
+`sangue` VARCHAR(3) NOT NULL, 
+`nascimento` DATE NOT NULL, 
+`endereco` VARCHAR(255) NOT NULL, 
+`email` VARCHAR(255),
+`pai` VARCHAR(255),
+`mae` VARCHAR(255)
 );
 
-
+# Login: crm e senha
 CREATE TABLE IF NOT EXISTS medico (
-crm INT UNIQUE NOT NULL, 
-nome VARCHAR(100) NOT NULL, 
-rg INT NOT NULL, 
-cpf NUMERIC(11) UNIQUE NOT NULL,
-telefone INT NOT NULL, 
-sangue CHAR(1) NOT NULL, 
-nascimento DATE NOT NULL, 
-especialidade INT NOT NULL,
-senha INT NOT NULL, 
-PRIMARY KEY (crm)
+`crm` INT UNIQUE NOT NULL PRIMARY KEY, 
+`cpf` CHAR(14) UNIQUE NOT NULL,
+`rg` VARCHAR(20) NOT NULL, 
+`nome` VARCHAR(255) NOT NULL, 
+`sexo` ENUM('M', 'F'),
+`telefone` INT, 
+`sangue` VARCHAR(3) NOT NULL, 
+`nascimento` DATE NOT NULL, 
+`especialidade` INT NOT NULL,
+`senha` INT NOT NULL,
 );
 
-CREATE TABLE IF NOT EXISTS hospital (cnpj INT, 
-nome VARCHAR(100), 
-endereco VARCHAR(200), 
-PRIMARY KEY (cnpj)
+CREATE TABLE IF NOT EXISTS hospital (
+`cnpj` INT PRIMARY KEY, 
+`nome` VARCHAR(100), 
+`endereco` VARCHAR(200), 
 );
 
-CREATE TABLE IF NOT EXISTS especialidade (id INT AUTO_INCREMENT, 
-nome VARCHAR (30), 
-PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS especialidade (
+`id` INT AUTO_INCREMENT PRIMARY KEY, 
+`nome` VARCHAR (30), 
 );
 
-CREATE TABLE IF NOT EXISTS agenda (id INT AUTO_INCREMENT, 
-crm INT, 
-cnpj INT, 
-especialidade INT,
-endereco VARCHAR(200), 
-dia DATE, 
-horario TIMESTAMP, 
-PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS agenda (
+`id` INT AUTO_INCREMENT PRIMARY KEY, 
+`crm` INT, 
+`cnpj` INT, 
+`especialidade` INT,
+`endereco` VARCHAR(200), 
+`dia` DATE, 
+`horario` TIME, 
 );
 
-CREATE TABLE IF NOT EXISTS consulta (id INT AUTO_INCREMENT, 
-cpf NUMERIC(11) UNIQUE, 
-cnpj INT,
-dia DATE, 
-diagnostico VARCHAR(100), 
-medicamento VARCHAR(100), 
-exame VARCHAR(100),
-observacao VARCHAR(100), 
-PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS consulta (
+`id` INT AUTO_INCREMENT PRIMARY KEY, 
+`cpf` CHAR(14) UNIQUE, 
+`cnpj` CHAR(18),
+`dia` DATE, 
+`diagnostico` TEXT, 
+`medicamento` TEXT, 
+`exame` VARCHAR(255),
+`observacao` TEXT, 
 );
 
 # Alters
