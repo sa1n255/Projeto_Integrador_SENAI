@@ -49,15 +49,18 @@ CREATE TABLE IF NOT EXISTS agenda (
 `cnpj` INT, 
 `especialidade` INT,
 `endereco` VARCHAR(200), 
-`dia` DATE, 
+`dia` DATE,
+`hora` TIME, 
 `horario` TIME, 
 );
 
 CREATE TABLE IF NOT EXISTS consulta (
 `id` INT AUTO_INCREMENT PRIMARY KEY, 
-`cpf` CHAR(14) UNIQUE, 
+`cpf` CHAR(14) UNIQUE,
+`crm` INT,
 `cnpj` CHAR(18),
-`dia` DATE, 
+`dia` DATE,
+`hora` TIME, 
 `diagnostico` TEXT, 
 `medicamento` TEXT, 
 `exame` VARCHAR(255),
@@ -69,6 +72,11 @@ ALTER TABLE medico ADD FOREIGN KEY (especialidade) REFERENCES especialidade (id)
 ALTER TABLE agenda ADD FOREIGN key (crm) REFERENCES medico (crm);
 ALTER TABLE agenda ADD FOREIGN key (especialidade) REFERENCES especialidade (id);
 ALTER TABLE agenda ADD FOREIGN key (cnpj) REFERENCES hospital (cnpj);
+
+
+ALTER TABLE consulta ADD FOREIGN key (cnpj) REFERENCES hospital (cnpj);
+ALTER TABLE consulta ADD FOREIGN KEY (cpf) REFERENCES pacientes (cpf);
+ALTER TABLE consulta ADD FOREIGN KEY (crm) REFERENCES medico (crm);
 
 # Inserts
 INSERT INTO medico (crm,nome,rg,cpf,telefone,sangue,nascimento,especialidade) VALUES (3, "henrique", 100, 12, 192999, "A", "2018-12-03", 194);
