@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const appagenda = require('./javascript/Appagenda')
 
 const app = express();
 
@@ -15,11 +16,16 @@ app.set('view engine', 'html');
 // Caminho da pasta estatica (Estilos)
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, '/pages'));
+//javascript
 
 // rotas 
 // res = response, req = request
 app.get('/', (req, res) => {
     res.render('index', {});
+});
+
+app.get('/cadastromed', (req, res) => {
+    res.render('cadastromed', {});
 });
 
 app.get('/agenda', (req, res) => {
@@ -31,7 +37,12 @@ app.get('/area-medica', (req, res) => {
 });
 
 app.get('/cadastro', (req, res) => {
-   res.render('cadastro', {}); 
+   res.render('cadastro', {});
+
+});
+
+app.get('/login', (req, res) => {
+    res.render('login', {});
 });
 
 app.get('/pesquisa', (req, res) => {
@@ -52,6 +63,7 @@ app.get('/documentacao-do-projeto', (req, res) => {
 app.get('/:slug', (req, res) => {
     res.render('404');
 });
+
 
 // Ligar servidor
 app.listen(8080, () => console.log(`Servidor local ativo em http://localhost:8080`));

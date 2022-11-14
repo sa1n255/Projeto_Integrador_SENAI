@@ -23,7 +23,8 @@ cpf NUMERIC(11) UNIQUE NOT NULL,
 telefone INT NOT NULL, 
 sangue CHAR(1) NOT NULL, 
 nascimento DATE NOT NULL, 
-especialidade INT NOT NULL, 
+especialidade INT NOT NULL,
+senha INT NOT NULL, 
 PRIMARY KEY (crm)
 );
 

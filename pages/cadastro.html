@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/public/style.css" />
+    
     <title>Cadastro</title>
 </head>
 
@@ -20,8 +21,8 @@
     
         <div class="titulo">
             <select id="selecionado">
-                <option value="/Cadastro.html" selected>Cadastro dos Pacientes</option>
-                <option value="/CadastroMed.html">Cadastro do Médico</option>
+                <option value="/cadastro" selected>Cadastro dos Pacientes</option>
+                <option value="/cadastromed">Cadastro do Médico</option>
             </select>
         </div>
     
@@ -133,8 +134,12 @@
         </form>
     
     <%- include('partials/footer.html') %>
-    <script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
-    <script src="javascript/Appagenda.js"></script>
+        <script>
+            const selecionado = document.getElementById("selecionado");
+            selecionado.addEventListener('change', function() {
+            window.location.href="/cadastromed";
+            });
+        </script>
 </body>
 
 </html>

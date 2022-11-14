@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Login</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="/public/images/icons/arpa_icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="/public/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-login">
+        <div class="wrap-login">
+          <form class="login-form">
+            <span class="login-form-title"> Faça o login </span>
+
+            <div class="wrap-input margin-top-35 margin-bottom-35">
+              <input
+                class="input-form"
+                id="crm"
+                type="number"
+                name="number"
+                autocomplete="off"
+                oninput="crmvalidade()"
+              />
+              <span class="focus-input-form" data-placeholder="CRM"></span>
+              <span class="span"></span>
+            </div>
+
+            <div class="wrap-input margin-bottom-35">
+              <input
+                class="input-form"
+                type="password"
+                name="password"
+                id="senha"
+                oninput="senhavalidade()"
+              />
+              <span class="focus-input-form" data-placeholder="Senha"></span>
+              <span class="span"></span>
+            </div>
+
+            <div class="container-login-form-btn">
+              <button class="login-form-btn" id="butao">Login</button>
+            </div>
+          </form>
+        </div>
+        <img src="/public/images/icons/iconred.png" width="400" height="400" />
+      </div>
+    </div>
+
+    <script>
+      /*efeito*/
+      let inputs = document.getElementsByClassName("input-form");
+      for (let input of inputs) {
+        input.addEventListener("blur", function () {
+          if (input.value.trim() != "") {
+            input.classList.add("has-val");
+          } else {
+            input.classList.remove("has-val");
+          }
+        });
+      }
+
+      /*validação do formulario*/
+      const form = document.getElementById("login-form");
+      const input = document.querySelectorAll(".input-form");
+      const span = document.querySelectorAll(".span");
+
+      function setError(index) {
+        input[index].style.border = "3px solid #e63636";
+        span[index].style.display = "block";
+      }
+
+      function removeError(index) {
+        input[index].style.border = "";
+        span[index].style.display = "none";
+      }
+
+      function crmvalidade() {
+        if (input[0].value.length < 8) {
+          setError(0);
+        } else {
+          removeError(0);
+        }
+      }
+      function senhavalidade() {
+        if (input[1].value.length < 6) {
+          setError(1);
+        } else {
+          removeError(1);
+        }
+      }
+
+      /*redirecionamento caso a o crm esteja certo */
+      let butao = document.getElementById("butao");
+
+      butao.addEventListener("click", function (e) {
+        e.preventDefault();
+        const crm = document.getElementById("crm").value;
+        const senha = document.getElementById("senha").value;
+
+        if (crm == 12345678 && senha == 123456) {
+          alert("Login efetuado com sucesso")
+          window.location.href = "/area-medica";
+        } else {
+          alert("Erro, login não afetuado com sucesso");
+          input[0].value = "";
+          input[1].value = "";
+        }
+      });
+    </script>
+  </body>
+</html>

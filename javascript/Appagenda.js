@@ -39,7 +39,7 @@ butao.addEventListener("click", function (e) {
   console.log(sanguineovalor);
   console.log(emailvalor);
 });
-*/
+/*
 const id = document.querySelector("#identificação");
 const butao = document.querySelector("#butao");
 const teste = document.querySelector("#teste");
@@ -47,6 +47,7 @@ const teste = document.querySelector("#teste");
 teste.textContent = "ola mundo";
 
 id.textContent = "identificação";
+*/
 /*
 butao.addEventListener("click", function (e) {
     e.preventDefault();
@@ -56,3 +57,12 @@ butao.addEventListener("click", function (e) {
 
 });
 */
+
+const {Router} = require('express');
+
+const appagenda = Router();
+
+appagenda.get('',(req, res) =>{
+  res.send(console.log("hello world"))
+})
+module.exports = appagenda;
