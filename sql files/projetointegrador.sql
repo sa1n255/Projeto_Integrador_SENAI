@@ -7,7 +7,7 @@ USE projetointegrador;
 CREATE TABLE IF NOT EXISTS pacientes (cpf NUMERIC(11) UNIQUE, 
 nome VARCHAR(100) NOT NULL, 
 nascimento DATE NOT NULL, 
-endereço VARCHAR(200) NOT NULL, 
+endereco VARCHAR(200) NOT NULL, 
 sangue CHAR(1) NOT NULL, 
 email VARCHAR(100) NOT NULL, 
 telefone INT NOT NULL,
@@ -30,7 +30,7 @@ PRIMARY KEY (crm)
 
 CREATE TABLE IF NOT EXISTS hospital (cnpj INT, 
 nome VARCHAR(100), 
-endereço VARCHAR(200), 
+endereco VARCHAR(200), 
 PRIMARY KEY (cnpj)
 );
 
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS agenda (id INT AUTO_INCREMENT,
 crm INT, 
 cnpj INT, 
 especialidade INT,
-endereço VARCHAR(200), 
+endereco VARCHAR(200), 
 dia DATE, 
-horário TIMESTAMP, 
+horario TIMESTAMP, 
 PRIMARY KEY (id)
 );
 
@@ -53,10 +53,10 @@ CREATE TABLE IF NOT EXISTS consulta (id INT AUTO_INCREMENT,
 cpf NUMERIC(11) UNIQUE, 
 cnpj INT,
 dia DATE, 
-diagnóstico VARCHAR(100), 
+diagnostico VARCHAR(100), 
 medicamento VARCHAR(100), 
 exame VARCHAR(100),
-observação VARCHAR(100), 
+observacao VARCHAR(100), 
 PRIMARY KEY (id)
 );
 
