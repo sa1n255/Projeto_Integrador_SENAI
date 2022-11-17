@@ -27,10 +27,10 @@
         </div>
     
         <form id="formulario-cadastro" class="formulario-cadastro">
-           
+            <div id="sub-form-esquerda">
                 <div class="form-esquerda">
                     <label for="nome"> Nome </label>
-                    <input type="text" id="nome" placeholder="Nome do paciente" />
+                    <input type="text" id="nome" class="input-form" oninput="nome()" placeholder="Nome do paciente" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -38,7 +38,7 @@
 
                 <div class="form-esquerda">
                     <label for="historico">Historio Médico</label>
-                    <input type="text" id="historico" placeholder="Histórico" />
+                    <input type="text" id="historico" class="input-form" placeholder="Histórico" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -46,7 +46,7 @@
 
                 <div class="form-esquerda">
                     <label for="enferm">Enfermidades Cronicas</label>
-                    <input type="text" id="enferm" placeholder="Enfermidades Cronicas" />
+                    <input type="text" id="enferm" class="input-form" placeholder="Enfermidades Cronicas" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -54,15 +54,15 @@
 
                 <div class="form-esquerda">
                     <label for="historicoconsul">Historico de Consultas</label>
-                    <input type="text" id="historicoconsul" placeholder="Historico de Consultas" />
+                    <input type="text" id="historicoconsul" class="input-form" placeholder="Historico de Consultas" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
                 </div>
 
-                <div class="form-esquerda">
-                    <label for="plano"> Plano de saúde </label>
-                    <input type="text" id="plano" placeholder="Plano de Saúde" />
+                <div class="form-direita">
+                    <label for="email"> Email </label>
+                    <input type="email" id="email" class="input-form" placeholder="Email" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -70,18 +70,18 @@
 
                 <div class="form-esquerda">
                     <label for="telefone"> Telefone </label>
-                    <input type="tel" id="telefone" pattern="/([0-9]{2}\)[0-9]{5}-[0-9]{4}"
+                    <input type="tel" id="telefone" class="input-form" pattern="/([0-9]{2}\)[0-9]{5}-[0-9]{4}"
                         placeholder="(xx) xxxxx-xxxx" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
                 </div>
             
-
-            
+            </div>
+            <div id="sub-form-direita">
                 <div class="form-direita">
                     <label for="endereco"> Endereço </label>
-                    <input type="text" id="endereco" placeholder="Endereço" />
+                    <input type="text" id="endereco" class="input-form" placeholder="Endereço" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -89,7 +89,7 @@
 
                 <div class="form-direita">
                     <label for="data de nascimento">Data de Nascimento</label>
-                    <input type="date" id="datanascimento" placeholder="Data xx/xx/xxxx" />
+                    <input type="date" id="datanascimento" class="input-form"  placeholder="Data xx/xx/xxxx" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -97,7 +97,7 @@
 
                 <div class="form-direita">
                     <label for="medicamentos atuais">Medicamentos Atuais</label>
-                    <input type="text" id="medicamentosa" placeholder="Medicamentos atuais" />
+                    <input type="text" id="medicamentosa" class="input-form"  placeholder="Medicamentos atuais" />
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -120,16 +120,9 @@
                     <small>mesagem de erro</small>
                 </div>
 
-                <div class="form-direita">
-                    <label for="email"> Email </label>
-                    <input type="email" id="email" placeholder="Email" />
-                    <i class="fas fa-exclamation-circle"></i>
-                    <i class="fas fa-check-circle"></i>
-                    <small>mesagem de erro</small>
-                </div>
 
                 <button type="submit" id="butao">Enviar</button>
-
+            </div>
         </form>
     
     <%- include('partials/footer.html') %>
@@ -138,6 +131,61 @@
             selecionado.addEventListener('change', function() {
             window.location.href="/cadastromed";
             });
+
+        /*validação do formulario*/
+        const form = document.getElementById("login-form");
+        const input = document.querySelectorAll(".input-form");
+        const span = document.querySelectorAll(".span");
+        const nomeP = document.getElementById("nome")
+
+        function setError(index) {
+            input[index].style.border = "3px solid #e63636";
+            
+        }
+
+        function removeError(index) {
+            input[index].style.border = "";
+            
+        }
+
+        function nome() {
+            if (nomeP.value.length < 10) {
+                setError(0);
+            } else {
+                removeError(0);
+            }
+        }
+
+        function email() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function telefone() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function endereco() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function datanascimento() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        
+
         </script>
 </body>
 

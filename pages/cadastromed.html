@@ -146,6 +146,72 @@
       selecionado.addEventListener("change", function () {
         window.location.href = "/cadastro";
       });
+
+       /*validação do formulario*/
+       const form = document.getElementById("login-form");
+        const input = document.querySelectorAll(".input-form");
+        const span = document.querySelectorAll(".span");
+
+        function setError(index) {
+            input[index].style.border = "3px solid #e63636";
+            span[index].style.display = "block";
+        }
+
+        function removeError(index) {
+            input[index].style.border = "";
+            span[index].style.display = "none";
+        }
+
+        function nome() {
+            if (input[0].value.length < 20) {
+                setError(0);
+            } else {
+                removeError(0);
+            }
+        }
+
+        function crm() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function rg() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function cpf() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function telefone() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function datanascimento() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
+        function senha() {
+            if (input[1].value.length < 6) {
+                setError(1);
+            } else {
+                removeError(1);
+            }
+        }
     </script>
   </body>
 </html>

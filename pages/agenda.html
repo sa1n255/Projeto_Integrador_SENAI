@@ -38,7 +38,25 @@
         </div>
 
         <%- include('partials/footer.html') %>
-            <script src="javascript/Appagenda.js"></script>
+            <script>
+                function setError(index) {
+            input[index].style.border = "3px solid #e63636";
+            span[index].style.display = "block";
+        }
+
+        function removeError(index) {
+            input[index].style.border = "";
+            span[index].style.display = "none";
+        }
+
+        function crm() {
+            if (input[0].value.length < 20) {
+                setError(0);
+            } else {
+                removeError(0);
+            }
+        }
+            </script>
 </body>
 
 </html>
