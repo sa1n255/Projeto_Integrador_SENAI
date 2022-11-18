@@ -45,12 +45,14 @@ app.get('/login', (req, res) => {
     res.render('login', {});
 });
 
+app.post('/login', (req, res) => {
+    let crm = req.body.crm;
+    let senha = req.body.senha;
+})
+
 app.get('/pesquisa', (req, res) => {
     res.render('pesquisa', {});
-    // res.send(`<script>document.title = ${req.params.pesquisa}</script>`);
-    
 });
-
 app.get('/integrantes', (req, res) => {
     res.send('Página dos integrantes');
 });
