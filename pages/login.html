@@ -25,14 +25,14 @@
                         <input class="input-form" id="crm" type="number" name="number" autocomplete="off"
                             oninput="crmvalidade()" />
                         <span class="focus-input-form" data-placeholder="CRM"></span>
-                        <span class="span"></span>
+                        <span class="span">Crm incorreto</span>
                     </div>
 
                     <div class="wrap-input margin-bottom-35">
                         <input class="input-form" type="password" name="password" id="senha"
                             oninput="senhavalidade()" />
                         <span class="focus-input-form" data-placeholder="Senha"></span>
-                        <span class="span"></span>
+                        <span class="span">Senha incorreta</span>
                     </div>
 
                     <div class="container-login-form-btn">
@@ -100,8 +100,10 @@
                 window.location.href = "/area-medica";
             } else {
                 alert("Erro, login não afetuado com sucesso");
-                input[0].value = "";
-                input[1].value = "";
+                for(var i = 0; i<2; i++){
+                input[i].value = "";
+                removeError(i);
+                }
             }
         });
     </script>
