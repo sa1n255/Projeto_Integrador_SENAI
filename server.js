@@ -1,21 +1,22 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const app = express();
 const path = require('path');
+const stylePath = path.join(__dirname, 'public');
+const viewsPath = path.join(__dirname, 'pages');
+
 const appagenda = require('./javascript/Appagenda')
 
-const app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
     extended: true
 }));
+app.use(express.json());
 
 // Renderizador do HTML
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 // Caminho da pasta estatica (Estilos)
-app.use('/public', express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, '/pages'));
+app.use('/public', express.static(stylePath));
+app.set('views', viewsPath);
 //javascript
 
 // rotas 
