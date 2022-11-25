@@ -2,4 +2,4 @@
 
 ## npm install --save-dev nodemon
 
-## Dependencias: body-parser, ejs, express, mysql2, sequelize
+## Dependencias: ejs, express, mysql2, sequelize
