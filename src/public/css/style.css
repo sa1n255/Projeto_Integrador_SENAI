@@ -31,12 +31,6 @@ a {
   color: #fff;
   padding: 8px 5px 9px 5px;
   position: relative;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-
 
 }
 
@@ -46,7 +40,6 @@ a:hover {
 }
 
 a:before {
-  background-image: url("./ic-lampada.svg");
   background-size: 100%;
   height: 29px;
   width: 40px;
@@ -139,7 +132,7 @@ nav {
 
 /* Imagem apenas para preencher o conteúdo da página*/
 main {
-  background: url(../public/images/arpamed.jpg) no-repeat center center;
+  background: url(../../public/images/arpamed.jpg) no-repeat center center;
   background-size: cover;
   height: 91vh;
 }
@@ -209,9 +202,6 @@ ul {
 
 /* Reponsividade */
 @media (max-width: 960px) {
-  /* body{
-        overflow-x: hidden;
-    } */
   .menu-hamburguer {
     display: unset;
   }
@@ -225,41 +215,10 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    /* transform: translateX(100%); */
-    visibility: hidden;
+        visibility: hidden;
     overflow-y: hidden;
   }
   .header-list > li {
     margin-left: 0;
   }
-  /*
-    .header-list.active{
-        visibility: visible;
-    }
-    .line{
-        border-top: 2px solid;
-        width: 20px;
-    }
-    #line::after,
-    #line::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: currentColor;
-    margin-top: 5px;
-    transition: 0.3s;
-    position: relative;
-  }
-  #header-list.active #line {
-    border-top-color: transparent;
-  }
-  #header-list.active #line::before {
-    transform: rotate(135deg);
-  }
-  #header-list.active #line::after {
-    transform: rotate(-135deg);
-    top: -7px;
-  }
-  */
 }
