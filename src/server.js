@@ -4,7 +4,7 @@ const path = require('path');
 
 // Caminhos de Estilo e views
 const stylePath = path.join(__dirname, 'public');
-const viewsPath = path.join(__dirname, 'pages');
+const viewsPath = path.join(__dirname, 'views');
 
 // Import de Rotas
 const otherRoutes = require('./routes/routes');
