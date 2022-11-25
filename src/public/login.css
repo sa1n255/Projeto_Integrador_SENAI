@@ -55,7 +55,7 @@ input, button {
 	border: none;
 }
 
-button:hover {
+input:hover {
 	cursor: pointer;
 }
 
@@ -203,13 +203,13 @@ button:hover {
   Botão
 */
 
-.container-login-form-btn {
+.container-login-form-input {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.login-form-btn{
+.login-form-input{
 
   color: black;
   line-height: 1.2;
@@ -225,7 +225,7 @@ button:hover {
   transition: all 0.4s;
 }
 
-.login-form-btn:hover  {
+.login-form-input:hover  {
   background-color: var(--highligth-text);
 }
 

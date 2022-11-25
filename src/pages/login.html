@@ -7,36 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="/public/images/icons/arpa_icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/public/style.css" />
     <link rel="stylesheet" type="text/css" href="/public/login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/public/style.css" />
 </head>
 
 <body>
     <div class="container">
         <div class="container-login">
             <div class="wrap-login">
-                <form class="login-form">
+                <form class="login-form" action="/login/check" method="POST">
                     <span class="login-form-title">Faça Login</span>
 
                     <div class="wrap-input margin-top-35 margin-bottom-35">
-                        <input class="input-form" id="crm" type="number" name="number" autocomplete="off"
+                        <input class="input-form" id="crm" type="number" name="crm" autocomplete="off"
                             oninput="crmvalidade()" />
                         <span class="focus-input-form" data-placeholder="CRM"></span>
-                        <span class="span">Crm incorreto</span>
+                        <span class="span">Preencha este campo</span>
                     </div>
 
                     <div class="wrap-input margin-bottom-35">
                         <input class="input-form" type="password" name="password" id="senha"
                             oninput="senhavalidade()" />
                         <span class="focus-input-form" data-placeholder="Senha"></span>
-                        <span class="span">Senha incorreta</span>
+                        <span class="span">Preencha este campo</span>
                     </div>
 
-                    <div class="container-login-form-btn">
-                        <button class="login-form-btn" id="butao">Login</button>
+                    <div class="container-login-form-input">
+                        <input class="login-form-input" type="submit" value="Login">
                     </div>
                 </form>
             </div>
@@ -88,24 +88,24 @@
         }
 
         /*redirecionamento caso a o crm esteja certo */
-        let butao = document.getElementById("butao");
+        // let butao = document.getElementById("butao");
 
-        butao.addEventListener("click", function (e) {
-            e.preventDefault();
-            const crm = document.getElementById("crm").value;
-            const senha = document.getElementById("senha").value;
+        // butao.addEventListener("click", function (e) {
+        //     e.preventDefault();
+        //     const crm = document.getElementById("crm").value;
+        //     const senha = document.getElementById("senha").value;
 
-            if (crm == 12345678 && senha == 123456) {
-                alert("Login efetuado com sucesso")
-                window.location.href = "/area-medica";
-            } else {
-                alert("Erro, login não afetuado com sucesso");
-                for(var i = 0; i<2; i++){
-                input[i].value = "";
-                removeError(i);
-                }
-            }
-        });
+        //     if (crm == 12345678 && senha == 123456) {
+        //         alert("Login efetuado com sucesso")
+        //         window.location.href = "/area-medica";
+        //     } else {
+        //         alert("Erro, login não afetuado com sucesso");
+        //         for(var i = 0; i<2; i++){
+        //         input[i].value = "";
+        //         removeError(i);
+        //         }
+        //     }
+        // });
     </script>
 </body>
 
