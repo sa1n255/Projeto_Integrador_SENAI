@@ -132,14 +132,14 @@ nav {
 
 /* Imagem apenas para preencher o conteúdo da página*/
 main {
-  background: url(../../public/images/arpamed.jpg) no-repeat center center;
+  background: url(../public/images/arpamed.jpg) no-repeat center center;
   background-size: cover;
   height: 91vh;
 }
 
 /* Rodapé do Site */
 footer {
-  background: #0e0e13;
+  background: #b7302d;
   padding: 70px 0;
   /* position: fixed;
     bottom: 0;
@@ -202,6 +202,9 @@ ul {
 
 /* Reponsividade */
 @media (max-width: 960px) {
+  /* body{
+        overflow-x: hidden;
+    } */
   .menu-hamburguer {
     display: unset;
   }
@@ -215,10 +218,41 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-        visibility: hidden;
+    /* transform: translateX(100%); */
+    visibility: hidden;
     overflow-y: hidden;
   }
   .header-list > li {
     margin-left: 0;
   }
+  /*
+    .header-list.active{
+        visibility: visible;
+    }
+    .line{
+        border-top: 2px solid;
+        width: 20px;
+    }
+    #line::after,
+    #line::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  #header-list.active #line {
+    border-top-color: transparent;
+  }
+  #header-list.active #line::before {
+    transform: rotate(135deg);
+  }
+  #header-list.active #line::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+  */
 }
