@@ -132,7 +132,7 @@ nav {
 
 /* Imagem apenas para preencher o conteúdo da página*/
 main {
-  background: url(../public/images/arpamed.jpg) no-repeat center center;
+  background: url(../images/arpamed.jpg) no-repeat center center;
   background-size: cover;
   height: 91vh;
 }
