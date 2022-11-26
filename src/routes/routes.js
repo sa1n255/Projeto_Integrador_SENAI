@@ -1,15 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const path = require('path');
-const stylePath = path.join(__dirname, '../public');
-const viewsPath = path.join(__dirname, '../pages');
-
-// express().use('../public', express.static(stylePath));
-// express().engine('html', require('ejs').renderFile);
-// express().set('view engine', 'html');
-// express().set('views', viewsPath);
-
 router.get('/cadastromed', (req, res) => {
     res.render('cadastromed', {});
 });
