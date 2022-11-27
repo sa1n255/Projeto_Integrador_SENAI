@@ -7,6 +7,7 @@ router.post("/check", (req, res) => {
         password: req.body.password
     }
     console.log(`crm: ${entrar.crm}, senha: ${entrar.password}`);
+    res.redirect('/area-medica');
 });
 
 router.get("/", (req, res) => {
