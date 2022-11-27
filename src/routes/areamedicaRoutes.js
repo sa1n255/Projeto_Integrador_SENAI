@@ -1,9 +1,16 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
+import { Router } from 'express';
+const router = new Router();
 
-router.get('/area-medica', (req, res) => {
-   res.render('area-medica', {}); 
+router.get('/', (req, res) => {
+    res.render('area-medica', {});
+});
+
+router.post('/', (req, res) => {
+    console.log(req.body);
 });
 
 
-module.exports = router;
+// modules.exports = router;
+export default router;

@@ -3,15 +3,9 @@
 import { Router } from 'express';
 const router = new Router();
 
-
 router.get('/', (req, res) => {
-    res.render('pesquisa', {});
+    res.render('index', {});
 });
-
-router.post('/', (req, res) => {
-    console.log(req.body);
-});
-
 
 // modules.exports = router;
 export default router;
