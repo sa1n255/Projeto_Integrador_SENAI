@@ -1,14 +1,15 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
 
-const routes = {
-    agendaRoutes: require('./routes/agendaRoutes'),
-    areamedicaRoutes: require('./routes/areamedicaRoutes'),
-    cadastromedRoutes: require('./routes/cadastromedRoutes'),
-    cadastroRoutes: require('./routes/cadastroRoutes'),
-    loginRoutes: require('./routes/loginRoutes'),
-    pesquisaRoutes: require('./routes/pesquisaRoutes')
-}
+
+import agendaRoutes from './routes/agendaRoutes';
+import areamedicaRoutes from './routes/areamedicaRoutes';
+import cadastromedRoutes from './routes/cadastromedRoutes';
+import cadastroRoutes from './routes/cadastroRoutes';
+import loginRoutes from "./routes/loginRoutes"
+import pesquisaRoutes from './routes/pesquisaRoutes';
+import rootRoutes from './routes/rootRoutes';
+
 
 const paths = {
     stylePath: path.join(__dirname, 'public'),
@@ -16,7 +17,6 @@ const paths = {
 }
 
 const callbacks = {
-    root: (req, res) => res.render('index', {}),
     noRoute: (req, res, next) => res.status(404).render('404')
 }
 
@@ -25,36 +25,28 @@ class App {
         this.app = express();
         this.middlewares();
         this.routes();
-        this.templateEngines();
-        this.listening();
     }
 
     middlewares() {
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(express.json());
-    }
-
-    routes() {
-        this.app.get('/', callbacks.root);
-        this.app.use('/agenda', routes.agendaRoutes);
-        this.app.use('/area-medica', routes.areamedicaRoutes);
-        this.app.use('/cadastromed', routes.cadastromedRoutes);
-        this.app.use('/cadastro', routes.cadastroRoutes);
-        this.app.use('/login', routes.loginRoutes);
-        this.app.use('/pesquisa', routes.pesquisaRoutes);
-        this.app.use(callbacks.noRoute);
-    }
-
-    templateEngines() {
-        this.app.use('/public', express.static(paths.stylePath));
+        this.app.use('public', express.static(paths.stylePath));
         this.app.engine('html', require('ejs').renderFile);
         this.app.set('view engine', 'html');
         this.app.set('views', paths.viewsPath);
     }
 
-    listening(){
-        this.app.listen(8080, () => console.log(`Servidor local ativo em http://localhost:8080`));
+    routes() {
+        this.app.get('/', rootRoutes);
+        this.app.use('/agenda', agendaRoutes);
+        this.app.use('/area-medica', areamedicaRoutes);
+        this.app.use('/cadastromed', cadastromedRoutes);
+        this.app.use('/cadastro', cadastroRoutes);
+        this.app.use('/login', loginRoutes);
+        this.app.use('/pesquisa', pesquisaRoutes);
+        this.app.use(callbacks.noRoute);
     }
+
 }
 
-const app = new App();
+export default new App().app;
