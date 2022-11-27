@@ -1,35 +1,37 @@
-const express = require('express');
+import express from 'express';
+import { join } from 'path';
 const app = express();
-const path = require('path');
 
 // Caminhos de Estilo e views
-const stylePath = path.join(__dirname, 'public');
-const viewsPath = path.join(__dirname, 'views');
-
+const paths = {
+    style: join(__dirname, 'public'),
+    views: join(__dirname, 'views')
+}
 // Import de Rotas
-const agendaRoutes = require('./routes/agendaRoutes');
-const areamedicaRoutes = require('./routes/areamedicaRoutes');
-const cadastromedRoutes = require('./routes/cadastromedRoutes');
-const cadastroRoutes = require('./routes/cadastroRoutes');
-const loginRoutes = require('./routes/loginRoutes');
-const pesquisaRoutes = require('./routes/pesquisaRoutes');
+import agendaRoutes from './routes/agendaRoutes';
+import areamedicaRoutes from './routes/areamedicaRoutes';
+import cadastromedRoutes from './routes/cadastromedRoutes';
+import cadastroRoutes from './routes/cadastroRoutes';
+import loginRoutes from "./routes/loginRoutes"
+import pesquisaRoutes from './routes/pesquisaRoutes';
+import rootRoutes from './routes/rootRoutes';
 
-// Pegar o body da requisição agora é nativo do Express 😎
+// Habilitar o JSON do Corpo da requisição
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Template Engine (Uso de CSS e Renderização de HTML)
-app.use('/public', express.static(stylePath));
+app.use('/public', express.static(paths.style));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', viewsPath);
+app.set('views', paths.views);
 
 
 const root = (req, res) => res.render('index', {});
 const noRoute = (req, res, next) => res.status(404).render('404');
 
 // Rotas
-app.get('/', root); 
+app.get('/', rootRoutes); 
 app.use('/agenda', agendaRoutes); 
 app.use('/area-medica', areamedicaRoutes);
 app.use('/cadastromed', cadastromedRoutes); 
