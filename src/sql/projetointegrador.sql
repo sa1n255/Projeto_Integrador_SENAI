@@ -7,7 +7,7 @@ USE arpamed;
 -- 
 
 -- Criação das tabelas
-CREATE TABLE IF NOT EXISTS pacientes (
+CREATE TABLE IF NOT EXISTS paciente (
 `cpf` CHAR(14) UNIQUE NOT NULL PRIMARY KEY, -- Check
 `rg` VARCHAR(40),
 `nome` VARCHAR(255) NOT NULL, 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS consulta (
 );
 
 -- Alters
-ALTER TABLE medico ADD FOREIGN KEY (especialidade) REFERENCES especialidade (id);
+ALTER TABLE medico ADD FOREIGN KEY (especialidade) REFERENCES especialidade (id); -- Ta dando erro
 ALTER TABLE agenda ADD FOREIGN key (crm) REFERENCES medico (crm);
 ALTER TABLE agenda ADD FOREIGN key (especialidade) REFERENCES especialidade (id);
 ALTER TABLE agenda ADD FOREIGN key (cnpj) REFERENCES hospital (cnpj);
