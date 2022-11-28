@@ -1,5 +1,6 @@
 import express from 'express';
 import { join } from 'path';
+import loginRequired from './middlewares/loginRequired';
 const app = express();
 
 // Caminhos de Estilo e views
@@ -25,6 +26,7 @@ app.use('/public', express.static(paths.style));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', paths.views);
+app.use(loginRequired);
 
 
 const root = (req, res) => res.render('index', {});
