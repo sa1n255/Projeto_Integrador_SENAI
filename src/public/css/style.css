@@ -6,10 +6,6 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-/* Deixa o scroll suave */
-html {
-  scroll-behavior: smooth;
-}
 
 * {
   font-family: "Roboto", sans-serif;

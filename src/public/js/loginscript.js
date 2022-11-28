@@ -16,17 +16,6 @@ const input = document.querySelectorAll(".input-form");
 const span = document.querySelectorAll(".span");
 const change = document.getElementById("butaologin");
 
-function changebutao() {
-    const crm = document.getElementById("crm").value;
-    const senha = document.getElementById("senha").value;
-
-    if (crm == "" || senha == ""){
-        alert("erro");
-    }else{
-    change.type = "submit";
-    }
-}
-
 function setError(index) {
   input[index].style.border = "3px solid #e63636";
   span[index].style.display = "block";
@@ -40,15 +29,31 @@ function removeError(index) {
 function crmvalidade() {
   if (input[0].value.length < 8) {
     setError(0);
+    return 0;
   } else {
     removeError(0);
+    return 1;
   }
+
 }
 function senhavalidade() {
   if (input[1].value.length < 6) {
     setError(1);
+    return 0;
   } else {
     removeError(1);
+    return 2;
+  }
+}
+function changebutao() {
+  const crm = document.getElementById("crm").value;
+  const senha = document.getElementById("senha").value;
+
+  if (crmvalidade() == 1 && senhavalidade() == 2){
+    change.type = "submit";
+  }else{
+    alert("erro");
+    change.type = "";
   }
 }
 /*redirecionamento caso a o crm esteja certo */
