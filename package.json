@@ -4,7 +4,8 @@
   "description": "Projeto Integrador",
   "main": "./src/server.js",
   "scripts": {
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon ./src/server.js",
+    "db": "nodemon ./src/db/dbconnection.js"
   },
   "author": "",
   "license": "ISC",
