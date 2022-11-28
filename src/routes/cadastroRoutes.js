@@ -1,15 +1,14 @@
 // const express = require('express');
 // const router = express.Router();
+
 import { Router } from 'express';
+import CadastroController from '../controllers/CadastroController';
 const router = new Router();
 
-router.get('/', (req, res) => {
-    res.render('cadastro', {});
-});
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-});
 
-// module.exports = router;
+router.get('/', CadastroController.get);
+router.post('/', CadastroController.post);
+
+
 export default router;
