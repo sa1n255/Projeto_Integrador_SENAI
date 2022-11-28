@@ -58,3 +58,11 @@ const form = document.getElementById("login-form");
           removeError(1);
         }
       }
+
+      function crmvalidar() {
+        if (input[2].value.length < 8) {
+            setError(2);
+        } else {
+            removeError(2);
+        }
+    }
