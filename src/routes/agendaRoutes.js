@@ -1,15 +1,9 @@
-// const express = require('express');
-// const router = express.Router();
 import { Router } from 'express';
+import AgendaController from '../controllers/AgendaController';
+
 const router = new Router();
 
-router.get('/', (req, res) => {
-    res.render('agenda', {});
-});
+router.get('/', AgendaController.get);
+router.post('/', AgendaController.post);
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-});
-
-// modules.exports = router;
 export default router;

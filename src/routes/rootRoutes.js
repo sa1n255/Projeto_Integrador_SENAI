@@ -1,11 +1,8 @@
-// const express = require('express');
-// const router = express.Router();
 import { Router } from 'express';
+import RootController from '../controllers/RootController';
+
 const router = new Router();
 
-router.get('/', (req, res) => {
-    res.render('index', {});
-});
+router.get('/', RootController.get);
 
-// modules.exports = router;
 export default router;
