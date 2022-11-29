@@ -34,7 +34,6 @@ function crmvalidade() {
     removeError(0);
     return 1;
   }
-
 }
 function senhavalidade() {
   if (input[1].value.length < 6) {
@@ -49,11 +48,11 @@ function changebutao() {
   const crm = document.getElementById("crm").value;
   const senha = document.getElementById("senha").value;
 
-  if (crmvalidade() == 1 && senhavalidade() == 2){
+  if (crmvalidade() == 1 && senhavalidade() == 2) {
     change.type = "submit";
-  }else{
-    alert("erro");
-    change.type = "";
+  } else {
+    change.type = "button";
+    change.style.background = "gray";
   }
 }
 /*redirecionamento caso a o crm esteja certo */
