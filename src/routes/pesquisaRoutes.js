@@ -5,7 +5,8 @@ const router = new Router();
 
 
 router.get('/', (req, res) => {
-    res.render('pesquisa', {});
+    let oi;
+    res.render('pesquisa', {oi: oi});
 });
 
 router.post('/', (req, res) => {

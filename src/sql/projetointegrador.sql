@@ -88,4 +88,8 @@ ALTER TABLE consulta ADD FOREIGN KEY (cpf) REFERENCES pacientes (cpf);
 ALTER TABLE consulta ADD FOREIGN KEY (crm) REFERENCES medico (crm);
 
 -- Inserts
-INSERT INTO medico VALUES (3, "henrique", 100, 12, 192999, "A", "2018-12-03", 194);
+INSERT INTO medico (crm, cpf, rg, nome, sangue, nascimento, especialidade, senha) VALUES ('23431231', 'cpf1231234', 'rg1231231231', 'NomeSamuel1', 'O+', '2018-11-10', '1', 'senhaSamuel');
+INSERT INTO medico (crm, cpf, rg, nome, sangue, nascimento, especialidade, senha) VALUES ('23431232', 'cpf1231235', 'rg1231231232', 'NomeSamuel2', 'O+', '2018-11-10', '1', 'senhaSamuel');
+INSERT INTO medico (crm, cpf, rg, nome, sangue, nascimento, especialidade, senha) VALUES ('23431233', 'cpf1231236', 'rg1231231233', 'NomeSamuel3', 'O+', '2018-11-10', '1', 'senhaSamuel');
+INSERT INTO medico (crm, cpf, rg, nome, sangue, nascimento, especialidade, senha) VALUES ('23431234', 'cpf1231237', 'rg1231231234', 'NomeSamuel4', 'O+', '2018-11-10', '1', 'senhaSamuel');
+INSERT INTO medico (crm, cpf, rg, nome, sangue, nascimento, especialidade, senha) VALUES ('23431235', 'cpf1231238', 'rg1231231235', 'NomeSamuel5', 'O+', '2018-11-10', '1', 'senhaSamuel');

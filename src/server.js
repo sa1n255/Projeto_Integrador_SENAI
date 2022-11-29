@@ -1,5 +1,6 @@
 import express from 'express';
 import { join } from 'path';
+import cors from 'cors';
 import loginRequired from './middlewares/loginRequired';
 const app = express();
 
@@ -27,12 +28,13 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', paths.views);
 app.use(loginRequired);
-
+app.use(cors());
 
 const root = (req, res) => res.render('index', {});
 const noRoute = (req, res, next) => res.status(404).render('404');
 
 // Rotas
+
 app.get('/', rootRoutes); 
 app.use('/agenda', agendaRoutes); 
 app.use('/area-medica', areamedicaRoutes);
@@ -40,7 +42,10 @@ app.use('/cadastromed', cadastromedRoutes);
 app.use('/cadastro', cadastroRoutes); 
 app.use('/login', loginRoutes); 
 app.use('/pesquisa', pesquisaRoutes); 
+app.get('/results', (req, res) => {
+    
+    res.json([{idade: 12, nome: 'Samuel'}])
+})
 app.use(noRoute); 
-
 // Escuta do Servidor Local
 app.listen(8080, () => console.log(`Servidor local ativo em http://localhost:8080`));

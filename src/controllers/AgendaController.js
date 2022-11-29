@@ -1,13 +1,15 @@
-import { db } from "../db/dbconnection";
+import { selectMedicoWhere } from '../models/Agenda';
 
 class AgendaController{
     async get(req, res) {
         res.render('agenda', {});
     }
 
-    async post(req, res) {
-        const crmAgenda = req.body.crmagenda;
-        console.log(`crm: ${crmAgenda}`);
+    async procurar(req, res) {
+        const query = `SELECT * FROM medico WHERE ?? = ?`
+        const crm = req.body.crmagenda; // 23431231
+        const data = ['crm', crm]
+        res.json(selectMedicoWhere(query, data));
     }
 }
 
