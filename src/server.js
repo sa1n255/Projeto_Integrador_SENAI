@@ -12,9 +12,9 @@ const paths = {
 // Import de Rotas
 import agendaRoutes from './routes/agendaRoutes';
 import areamedicaRoutes from './routes/areamedicaRoutes';
-import cadastromedRoutes from './routes/cadastromedRoutes';
-import cadastroRoutes from './routes/cadastroRoutes';
-import loginRoutes from "./routes/loginRoutes"
+import medicoRoutes from './routes/medicoRoutes';
+import pacienteRoutes from './routes/pacienteRoutes';
+import loginRoutes from './routes/loginRoutes';
 import pesquisaRoutes from './routes/pesquisaRoutes';
 import rootRoutes from './routes/rootRoutes';
 
@@ -38,10 +38,11 @@ const noRoute = (req, res, next) => res.status(404).render('404');
 app.get('/', rootRoutes); 
 app.use('/agenda', agendaRoutes); 
 app.use('/area-medica', areamedicaRoutes);
-app.use('/cadastromed', cadastromedRoutes); 
-app.use('/cadastro', cadastroRoutes); 
+app.use('/cadastromed', medicoRoutes); 
+app.use('/paciente', pacienteRoutes); 
 app.use('/login', loginRoutes); 
 app.use('/pesquisa', pesquisaRoutes); 
+// teste de consumo de API no FE
 app.get('/results', (req, res) => {
     
     res.json([{idade: 12, nome: 'Samuel'}])
