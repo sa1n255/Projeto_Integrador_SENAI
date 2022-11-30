@@ -7,13 +7,15 @@ USE arpamed;
 -- https://pt.stackoverflow.com/questions/47871/tipo-do-campo-cpf-ou-cnpj-no-banco-de-dados-varchar-ou-int
 -- https://www.guj.com.br/t/banco-de-dados-chave-candidata-me-ajuda/402625
 
+-- Perfeito para FOREIGN KEYS: https://stackoverflow.com/questions/236668/foreign-keys-in-mysql
+
 CREATE TABLE IF NOT EXISTS Paciente (
 `cpf_paciente` CHAR(14) UNIQUE NOT NULL PRIMARY KEY,
-`rg_paciente` VARCHAR(10), -- Check
+`rg_paciente` VARCHAR(14), -- Check
 `nome_paciente` VARCHAR(120) NOT NULL, -- Check
 `sexo_paciente` ENUM('H', 'M') NOT NULL, -- Check
-`telefone_paciente` BIGINT(14) UNSIGNED NOT NULL, -- Check
-`celular_paciente` BIGINT(14) UNSIGNED, -- Check
+`telefone_paciente` BIGINT UNSIGNED NOT NULL, -- Check
+`celular_paciente` BIGINT UNSIGNED, -- Check
 `sangue_paciente` VARCHAR(3) NOT NULL, -- Check
 `nascimento_paciente` DATE NOT NULL, -- Check
 `endereco_paciente` VARCHAR(150), -- Check
@@ -26,28 +28,28 @@ CREATE TABLE IF NOT EXISTS Paciente (
 `nome_mae` VARCHAR(100) -- Check
 );
 
--- Login: crm e senha
 CREATE TABLE IF NOT EXISTS Medico (
 `crm` INT UNSIGNED UNIQUE NOT NULL PRIMARY KEY,
 `cpf_medico` CHAR(14) UNIQUE NOT NULL, -- Check
-`rg_medico` VARCHAR(40) NOT NULL, -- Check
+`rg_medico` VARCHAR(14) NOT NULL, -- Check
 `nome_medico` VARCHAR(120) NOT NULL, -- Check
 `sexo_medico` ENUM('H', 'M'), -- Check
-`telefone_medico` BIGINT(14) UNSIGNED NOT NULL, -- Check
+`telefone_medico` BIGINT UNSIGNED NOT NULL, -- Check
 `sangue_medico` VARCHAR(3) NOT NULL, -- Check 
 `nascimento_medico` DATE NOT NULL, -- Check
-`fk_especialidade` VARCHAR(30) NOT NULL, 
-`senha` VARCHAR(25) NOT NULL,
-FOREIGN KEY (fk_especialidade) REFERENCES Especialidade (id_especialidade); -- Check
+`fk_id_especialidade` INT NOT NULL, 
+`senha` VARCHAR(25) NOT NULL, -- check
+FOREIGN KEY (`fk_id_especialidade`) REFERENCES Especialidade(`id_especialidade`) -- Check
 );
 
 CREATE TABLE IF NOT EXISTS Hospital (
-`cnpj_hospital` VARCHAR(18) PRIMARY KEY, 
-`nome_hospital` VARCHAR(100), -- Check
-`cep_hospital` VARCHAR(45), -- Check
-`bairro_hospital` VARCHAR(50), -- Check
-`cidade_hospital` VARCHAR(50), -- Check
-`uf_hospital` CHAR(2) -- Check
+`cnpj_hospital` VARCHAR(18) NOT NULL PRIMARY KEY, 
+`nome_hospital` VARCHAR(100) NOT NULL,
+`endereco_hospital` VARCHAR(150) NOT NULL, -- Check
+`cep_hospital` VARCHAR(45) NOT NULL, -- Check
+`bairro_hospital` VARCHAR(50) NOT NULL, -- Check
+`cidade_hospital` VARCHAR(50) NOT NULL, -- Check
+`uf_hospital` CHAR(2) NOT NULL -- Check
 );
 
 CREATE TABLE IF NOT EXISTS Especialidade (
@@ -56,38 +58,32 @@ CREATE TABLE IF NOT EXISTS Especialidade (
 );
 
 CREATE TABLE IF NOT EXISTS Agenda (
-`crm` INT UNSIGNED NOT NULL, 
-`fk_cnpj_hospital` VARCHAR(18), 
-`especialidade` INT, 
-`endereco` VARCHAR(150), 
-`dia` DATE, -- Check
-`hora` TIME, -- Check
+`fk_crm` INT UNSIGNED NOT NULL, 
+`fk_agenda_cnpj_hospital` VARCHAR(18) NOT NULL, 
+`fk_especialidade` INT NOT NULL, 
+`endereco_hospital` VARCHAR(150) NOT NULL, 
+`dia_agenda` DATE,
+`hora_agenda` TIME,
+FOREIGN KEY (`fk_crm`) REFERENCES Medico(`crm`),
+FOREIGN KEY (`fk_cnpj_hospital`) REFERENCES Hospital(`cnpj_hospital`),
+FOREIGN KEY (`fk_especialidade`) REFERENCES Especialidade(`id_especialidade`)
 );
 
 CREATE TABLE IF NOT EXISTS Consulta (
 `id_consulta` INT AUTO_INCREMENT PRIMARY KEY,
-`crm` INT UNSIGNED NOT NULL,
+`fk_crm` INT UNSIGNED NOT NULL,
 `nome_medico` VARCHAR(120) NOT NULL,
 `nome_paciente` VARCHAR(120) NOT NULL, 
-`cnpj_hospital` VARCHAR(18) NOT NULL, -- Check
+`fk_cnpj_hospital` VARCHAR(18) NOT NULL, -- Check
 `dia_consulta` DATE NOT NULL, -- Check
 `hora_consulta` TIME NOT NULL, -- Check
 `diagnostico` TEXT, -- Check
 `medicamento` TEXT, -- Check
 `exame` VARCHAR(100), 
 `observacao` TEXT, -- Check
+FOREIGN KEY (`fk_crm`) REFERENCES Medico(`crm`),
+FOREIGN KEY (`fk_consulta_cnpj_hospital`) REFERENCES Hospital(`cnpj_hospital`)
 );
-
--- Alters
-ALTER TABLE medico ADD FOREIGN KEY (especialidade) REFERENCES especialidade (id); -- Ta dando erro
-ALTER TABLE agenda ADD FOREIGN key (crm) REFERENCES medico (crm);
-ALTER TABLE agenda ADD FOREIGN key (especialidade) REFERENCES especialidade (id);
-ALTER TABLE agenda ADD FOREIGN key (cnpj) REFERENCES hospital (cnpj);
-
-
-ALTER TABLE consulta ADD FOREIGN key (cnpj) REFERENCES hospital (cnpj);
-ALTER TABLE consulta ADD FOREIGN KEY (cpf) REFERENCES pacientes (cpf);
-ALTER TABLE consulta ADD FOREIGN KEY (crm) REFERENCES medico (crm);
 
 -- Inserts
 INSERT INTO medico (crm, cpf, rg, nome, sangue, nascimento, especialidade, senha) VALUES ('23431231', 'cpf1231234', 'rg1231231231', 'NomeSamuel1', 'O+', '2018-11-10', '1', 'senhaSamuel');
