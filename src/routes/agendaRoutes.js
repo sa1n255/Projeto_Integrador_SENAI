@@ -3,7 +3,7 @@ import AgendaController from '../controllers/AgendaController';
 
 const router = new Router();
 
-router.get('/', AgendaController.get);
+router.get('/', AgendaController.index);
 router.post('/procurar', AgendaController.procurar);
 
 export default router;
