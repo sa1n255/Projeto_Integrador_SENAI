@@ -1,11 +1,6 @@
-import { db } from "../db/dbconnection";
-
-
-export function selectMedicoWhere (query, data) {
-    db.query(query, data, (err, data) => {
-        if (err) {
-            console.log(err)
-        }
-        // console.log(data);
-    })
-}
+// `crm` INT UNSIGNED, --Check
+// `cnpj` INT, --Check
+// `especialidade` INT, --Check
+// `endereco` VARCHAR(200), 
+// `dia` DATE, --Check
+// `hora` TIME, --Check
