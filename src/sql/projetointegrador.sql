@@ -2,78 +2,80 @@
 CREATE DATABASE IF NOT EXISTS arpamed DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_0900_as_cs;
 
 USE arpamed;
+-- http://www.fititnt.org/off/tipos-de-campos-e-exemplos-de-valores-empresas-em-sistemas-cnpj-cep.html
+-- https://pt.stackoverflow.com/questions/4170/quais-s%C3%A3o-os-tipos-de-dados-apropriados-para-colunas-como-endere%C3%A7o-e-mail-tele
+-- https://pt.stackoverflow.com/questions/47871/tipo-do-campo-cpf-ou-cnpj-no-banco-de-dados-varchar-ou-int
+-- https://www.guj.com.br/t/banco-de-dados-chave-candidata-me-ajuda/402625
 
--- RG é unico? Não
--- 
-
--- Criação das tabelas
-CREATE TABLE IF NOT EXISTS paciente (
-`cpf` CHAR(14) UNIQUE NOT NULL PRIMARY KEY, -- Check
-`rg` VARCHAR(40),
-`nome` VARCHAR(255) NOT NULL, 
-`sexo` ENUM('H', 'M') NOT NULL, -- Check 
-`telefone` INT UNSIGNED NOT NULL,
-`sangue` VARCHAR(3) NOT NULL, -- Check
-`nascimento` DATE NOT NULL, -- Check
-`cep` VARCHAR(45),-- Check
-`bairro` VARCHAR(255),-- Check
-`municipio` VARCHAR(255),-- Check
-`cidade` VARCHAR(200),-- Check
-`estado` VARCHAR(255), -- Check
-`email` VARCHAR(255), -- Check
-`pai` VARCHAR(255), -- Check 
-`mae` VARCHAR(255) -- Check
+CREATE TABLE IF NOT EXISTS Paciente (
+`cpf_paciente` CHAR(14) UNIQUE NOT NULL PRIMARY KEY,
+`rg_paciente` VARCHAR(10), -- Check
+`nome_paciente` VARCHAR(120) NOT NULL, -- Check
+`sexo_paciente` ENUM('H', 'M') NOT NULL, -- Check
+`telefone_paciente` BIGINT(14) UNSIGNED NOT NULL, -- Check
+`celular_paciente` BIGINT(14) UNSIGNED, -- Check
+`sangue_paciente` VARCHAR(3) NOT NULL, -- Check
+`nascimento_paciente` DATE NOT NULL, -- Check
+`endereco_paciente` VARCHAR(150), -- Check
+`bairro_paciente` VARCHAR(50),-- Check
+`cidade_paciente` VARCHAR(50),-- Check
+`uf_paciente` CHAR(2), -- Check
+`cep_paciente` VARCHAR(9),-- Check
+`email_paciente` VARCHAR(100), -- Check
+`nome_pai` VARCHAR(100), -- Check
+`nome_mae` VARCHAR(100) -- Check
 );
 
 -- Login: crm e senha
-CREATE TABLE IF NOT EXISTS medico (
-`crm` INT UNSIGNED UNIQUE NOT NULL PRIMARY KEY, -- Check
-`cpf` CHAR(14) UNIQUE NOT NULL, -- Check
-`rg` VARCHAR(40) NOT NULL, 
-`nome` VARCHAR(255) NOT NULL, -- Check
-`sexo` ENUM('H', 'M'), -- Check
-`telefone` INT UNSIGNED, 
-`sangue` VARCHAR(3) NOT NULL, -- Check 
-`nascimento` DATE NOT NULL, -- Check
-`especialidade` INT UNSIGNED NOT NULL, 
-`senha` VARCHAR(25) NOT NULL, -- Check
+CREATE TABLE IF NOT EXISTS Medico (
+`crm` INT UNSIGNED UNIQUE NOT NULL PRIMARY KEY,
+`cpf_medico` CHAR(14) UNIQUE NOT NULL, -- Check
+`rg_medico` VARCHAR(40) NOT NULL, -- Check
+`nome_medico` VARCHAR(120) NOT NULL, -- Check
+`sexo_medico` ENUM('H', 'M'), -- Check
+`telefone_medico` BIGINT(14) UNSIGNED NOT NULL, -- Check
+`sangue_medico` VARCHAR(3) NOT NULL, -- Check 
+`nascimento_medico` DATE NOT NULL, -- Check
+`fk_especialidade` VARCHAR(30) NOT NULL, 
+`senha` VARCHAR(25) NOT NULL,
+FOREIGN KEY (fk_especialidade) REFERENCES Especialidade (id_especialidade); -- Check
 );
 
-CREATE TABLE IF NOT EXISTS hospital (
-`cnpj` VARCHAR(19) PRIMARY KEY, -- Check
-`nomehospital` VARCHAR(100), -- Check
-`cep` VARCHAR(45),-- Check
-`bairro` VARCHAR(255),-- Check
-`municipio` VARCHAR(255),-- Check
-`cidade` VARCHAR(200),-- Check
-`estado` VARCHAR(255)-- Check
+CREATE TABLE IF NOT EXISTS Hospital (
+`cnpj_hospital` VARCHAR(18) PRIMARY KEY, 
+`nome_hospital` VARCHAR(100), -- Check
+`cep_hospital` VARCHAR(45), -- Check
+`bairro_hospital` VARCHAR(50), -- Check
+`cidade_hospital` VARCHAR(50), -- Check
+`uf_hospital` CHAR(2) -- Check
 );
 
-CREATE TABLE IF NOT EXISTS especialidade (
-`id` INT AUTO_INCREMENT PRIMARY KEY, -- Check
-`especialidade` VARCHAR (30), -- Check
+CREATE TABLE IF NOT EXISTS Especialidade (
+`id_especialidade` INT AUTO_INCREMENT PRIMARY KEY, 
+`especialidade_medica` VARCHAR(30) NOT NULL, -- Check
 );
 
-CREATE TABLE IF NOT EXISTS agenda (
-`crm` INT UNSIGNED, --Check
-`cnpj` INT, --Check
-`especialidade` INT, --Check
-`endereco` VARCHAR(200), 
-`dia` DATE, --Check
-`hora` TIME, --Check
+CREATE TABLE IF NOT EXISTS Agenda (
+`crm` INT UNSIGNED NOT NULL, 
+`fk_cnpj_hospital` VARCHAR(18), 
+`especialidade` INT, 
+`endereco` VARCHAR(150), 
+`dia` DATE, -- Check
+`hora` TIME, -- Check
 );
 
-CREATE TABLE IF NOT EXISTS consulta (
-`id` INT AUTO_INCREMENT PRIMARY KEY, --Check
-`cpf` CHAR(14) UNIQUE, --Check
-`crm` INT UNSIGNED, --Check
-`cnpj` CHAR(18), --Check
-`dia` DATE, --Check
-`hora` TIME, --Check
-`diagnostico` TEXT, --Check
-`medicamento` TEXT, --Check
-`exame` VARCHAR(255),--Check
-`observacao` TEXT, --Check
+CREATE TABLE IF NOT EXISTS Consulta (
+`id_consulta` INT AUTO_INCREMENT PRIMARY KEY,
+`crm` INT UNSIGNED NOT NULL,
+`nome_medico` VARCHAR(120) NOT NULL,
+`nome_paciente` VARCHAR(120) NOT NULL, 
+`cnpj_hospital` VARCHAR(18) NOT NULL, -- Check
+`dia_consulta` DATE NOT NULL, -- Check
+`hora_consulta` TIME NOT NULL, -- Check
+`diagnostico` TEXT, -- Check
+`medicamento` TEXT, -- Check
+`exame` VARCHAR(100), 
+`observacao` TEXT, -- Check
 );
 
 -- Alters
