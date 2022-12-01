@@ -47,6 +47,13 @@
         form.style.display = "none";
         table.style.display = "block"
     }
+      function colocaform(){
+      const form = document.getElementById("formulario-areamed");
+      const table = document.getElementById("registroconsulta");
+      form.style.display = "flex";
+      table.style.display = "none"
+  }
+
 
     function listatabela(){
         let tbody = document.getElementById("tbody-resultado");
@@ -72,6 +79,7 @@
 
     const selecionado = document.getElementById("selecionado");
     selecionado.addEventListener("change", function () {
-      tirarform();
-      
+    if (selecionado.value == "cadastrar"){
+      colocaform()
+    }else{ tirarform()}
     });

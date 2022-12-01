@@ -136,7 +136,7 @@
 	.registroconsulta label{
 	display: inline-block;
 	margin-bottom: 5px;
-	padding-left: 5px; 
+	padding-left: 6px; 
 	}
 	.registroconsulta input{
 	border: 2px solid #1d1a1a;
@@ -145,8 +145,34 @@
 	font-size: 14px;
 	width: 150px;
 	padding: 10px;
+	margin-bottom: 5px;
+	margin-left: 2px;
 	}
-
+	.registroconsulta button{
+		background-color: #0a20a1;
+		border: 2px solid #0b1447;
+		color: #fff;
+		font-size: 15px;
+		width: 130px;
+		border-radius: 10px;
+		padding: 2px;
+		margin-left: 2px;
+	}
+	.registroconsulta table{
+		margin-top: 5px;
+	}
+	.registroconsulta h2 {
+		margin-left: 2px;
+	}
+	.selectirar{
+		border-radius: 5px;
+		background-color: #0a20a1;
+		border: 2px solid #0b1447;
+		width: 100px;
+		font-size: 15px;
+		color: #fff;
+		margin-left: 3px;
+	}
 	/* Error and Success */
 	/*.form-controle.success input {
 	border-color: #2ecc71;
