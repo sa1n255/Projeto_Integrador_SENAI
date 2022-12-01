@@ -158,3 +158,23 @@ visibility: visible;
 color: #e74c3c;
 }
 */
+/*parte da tabela*/
+.registroconsulta{
+  display: none;
+}
+table{
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  border: 5px solid #6f0000;
+  box-shadow: 0px 0px 3px #000;
+  border-collapse: collapse;
+}
+
+td,th{
+  padding: 2px 5px;
+  font-weight: normal;
+  width: 300px;
+  text-align: center;
+  border-right: 5px solid #6f0000;
+  border-bottom: 3px solid #6f0000;
+}

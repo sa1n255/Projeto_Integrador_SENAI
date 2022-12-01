@@ -84,6 +84,26 @@
             <button type="submit" id="butao">Enviar</button>
 
         </form>
+        <div id="registroconsulta">
+            <h2>Registro de consultas</h2>
+            <label for="exame">Exame</label>
+            <input type="text" id="registro" placeholder="Registro de consultas" name="registro" onclick="listatabela()"/>
+            <table id="table-resultado">
+                <thead>
+                    <th>CPF</th>
+                    <th>CNPJ</th>
+                    <th>CRM</th>
+                    <th>Diagnóstico</th>
+                    <th>Medicamento</th>
+                    <th>Exame</th>
+                    <th>Observação</th>
+                </thead>
+                <tbody id="tbody-resultado">
+                
+                </tbody>
+            </table>
+        </div>
+        <button onclick="tirarform()" id="butaotirar">teste</button>
         <%- include('partials/footer.html') %>
             <script src="/public/js/area-medicascript.js"></script>
 </body>

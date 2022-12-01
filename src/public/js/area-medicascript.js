@@ -1,5 +1,7 @@
-const form = document.getElementById("login-form");
-        const input = document.querySelectorAll(".input-form");      
+    const form = document.getElementById("login-form");
+    const input = document.querySelectorAll(".input-form");
+    const table = document.getElementById("registroconsulta");
+    table.style.display = "none"      
         function setError(index) {
             input[index].style.border = "4px solid #e63636";
             
@@ -9,7 +11,12 @@ const form = document.getElementById("login-form");
             input[index].style.border = "";
             
         }
-
+        function MascaraCNPJ(cnpj){
+          if(mascaraInteiro(cnpj)==false){
+                  event.returnValue = false;
+          }       
+          return formataCampo(cnpj, '00000000000000', event);
+        }
         function ValidarCPF() {
         var cpf = input[0].value;
         exp = /\.|\-/g;
@@ -65,4 +72,32 @@ const form = document.getElementById("login-form");
         } else {
             removeError(2);
         }
+    }
+      function tirarform(){
+        const form = document.getElementById("formulario-areamed");
+        const table = document.getElementById("registroconsulta");
+        form.style.display = "none";
+        table.style.display = "block"
+    }
+
+    function listatabela(){
+        let tbody = document.getElementById("tbody-resultado");
+
+        let tr = tbody.insertRow();
+
+        let td_cpf= tr.insertCell();
+        let td_cpnj = tr.insertCell();
+        let td_crm = tr.insertCell();
+        let td_diagnostico = tr.insertCell();
+        let td_medicamento = tr.insertCell();
+        let td_exame = tr.insertCell();
+        let td_observacao = tr.insertCell();
+
+       td_cpf.innerText = "15550007703";
+       td_cpnj.innerText = "15196516";
+       td_crm.innerText = "12345678";
+       td_diagnostico.innerText = "o cara ta passando mal!";
+       td_medicamento.innerText = "bezentacil";
+       td_exame.innerText = "dedada do novembro azul";
+       td_observacao.innerText = "o cara muito mal";
     }
