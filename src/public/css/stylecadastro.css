@@ -22,7 +22,7 @@
 }
 .titulo select {
   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif)
-    no-repeat #eee;
+	no-repeat #eee;
   /* Imagem de fundo (Seta) */
   background-position: 205px center;
   /*Posição da imagem do background*/

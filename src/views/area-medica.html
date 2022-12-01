@@ -84,9 +84,9 @@
             <button type="submit" id="butao">Enviar</button>
 
         </form>
-        <div id="registroconsulta">
+        <div id="registroconsulta" class="registroconsulta">
             <h2>Registro de consultas</h2>
-            <label for="exame">Exame</label>
+            <label for="id">ID da consulta</label>
             <input type="text" id="registro" placeholder="Registro de consultas" name="registro" onclick="listatabela()"/>
             <table id="table-resultado">
                 <thead>
@@ -103,7 +103,11 @@
                 </tbody>
             </table>
         </div>
-        <button onclick="tirarform()" id="butaotirar">teste</button>
+        
+        <select class="selectirar" id="selecionado">
+            <option selected>Cadastrar</option>
+            <option>Exibir</option>
+        </select>
         <%- include('partials/footer.html') %>
             <script src="/public/js/area-medicascript.js"></script>
 </body>
