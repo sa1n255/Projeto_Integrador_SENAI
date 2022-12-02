@@ -1,6 +1,6 @@
 class MedicoController {
     async index(req, res) {
-        res.render('cadastro', {});
+        res.render('cadastromed', {});
     }
 
     async cadastrar(req, res) {

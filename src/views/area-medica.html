@@ -19,7 +19,10 @@
         <div class="titulo">
             <h2>Área médica</h2>
         </div>
-
+        <select class="selectirar" id="selecionado">
+            <option value="cadastrar">Cadastrar</option>
+            <option value="exibir">Exibir</option>
+        </select>
         <form id="formulario-areamed" class="formulario-areamed" action="/area-medica" method="POST">
 
             <div class="form-esquerda">
@@ -84,6 +87,26 @@
             <button type="submit" id="butao">Enviar</button>
 
         </form>
+        <div id="registroconsulta" class="registroconsulta">
+            <h2>Registro de consultas</h2>
+            <label for="id">ID da consulta</label>
+            <input type="text" id="registro" placeholder="Registro de consultas" name="registro" onclick="listatabela()"/>
+            <button type="submit" id="butao">Enviar</button>
+            <table id="table-resultado">
+                <thead>
+                    <th>CPF</th>
+                    <th>CNPJ</th>
+                    <th>CRM</th>
+                    <th>Diagnóstico</th>
+                    <th>Medicamento</th>
+                    <th>Exame</th>
+                    <th>Observação</th>
+                </thead>
+                <tbody id="tbody-resultado">
+                
+                </tbody>
+            </table>
+        </div>
         <%- include('partials/footer.html') %>
             <script src="/public/js/area-medicascript.js"></script>
 </body>

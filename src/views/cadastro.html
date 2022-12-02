@@ -68,7 +68,7 @@
                 <div class="form-esquerda">
                     <label for="cep">CEP</label>
                     <input type="text" id="cep" class="input-form"  
-                        placeholder="CEP do paciente" name="cep"/>
+                        placeholder="CEP do paciente" name="cep" oninput="cepvalidar()"/>
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -150,7 +150,7 @@
                 <div class="form-direita">
                     <label for="telefone"> Telefone </label>
                     <input type="tel" id="telefone" class="input-form" oninput="telefonevalidar()" 
-                        pattern="/([0-9]{2}\)[0-9]{5}-[0-9]{4}" placeholder="(xx) xxxxx-xxxx" name="telefone"/>
+                     placeholder="(xx) xxxxx-xxxx" name="telefone"/>
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
