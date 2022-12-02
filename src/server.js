@@ -6,6 +6,8 @@ import cors from 'cors';
 import loginRequired from './middlewares/loginRequired';
 const app = express();
 
+import "./database"
+
 // Caminhos de Estilo e views
 const paths = {
     style: join(__dirname, 'public'),
