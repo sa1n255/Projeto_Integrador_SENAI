@@ -1,5 +1,3 @@
-import { db } from "../db/dbconnection";
-
 class LoginController{
     async get(req, res) {
         res.render("login", {});
