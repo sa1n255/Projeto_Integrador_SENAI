@@ -9,7 +9,7 @@ USE arpamed;
 
 -- Perfeito para FOREIGN KEYS: https://stackoverflow.com/questions/236668/foreign-keys-in-mysql
 
-CREATE TABLE IF NOT EXISTS Paciente (
+CREATE TABLE IF NOT EXISTS paciente (
 `cpf_paciente` CHAR(14) UNIQUE NOT NULL PRIMARY KEY,
 `rg_paciente` VARCHAR(14), -- Check
 `nome_paciente` VARCHAR(120) NOT NULL, -- Check
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Paciente (
 `nome_mae` VARCHAR(100) -- Check
 );
 
-CREATE TABLE IF NOT EXISTS Medico (
+CREATE TABLE IF NOT EXISTS medico (
 `crm` INT UNSIGNED UNIQUE NOT NULL PRIMARY KEY,
 `cpf_medico` CHAR(14) UNIQUE NOT NULL, -- Check
 `rg_medico` VARCHAR(14) NOT NULL, -- Check
@@ -39,37 +39,37 @@ CREATE TABLE IF NOT EXISTS Medico (
 `nascimento_medico` DATE NOT NULL, -- Check
 `fk_id_especialidade` INT NOT NULL, 
 `senha` VARCHAR(25) NOT NULL, -- check
-FOREIGN KEY (`fk_id_especialidade`) REFERENCES Especialidade(`id_especialidade`) -- Check
+FOREIGN KEY (`fk_id_especialidade`) REFERENCES especialidade(`id_especialidade`) -- Check
 );
 
-CREATE TABLE IF NOT EXISTS Hospital (
-`cnpj_hospital` VARCHAR(18) NOT NULL PRIMARY KEY, 
+CREATE TABLE IF NOT EXISTS hospital (
+`cnpj_hospital` VARCHAR(18) NOT NULL UNIQUE PRIMARY KEY, 
 `nome_hospital` VARCHAR(100) NOT NULL,
 `endereco_hospital` VARCHAR(150) NOT NULL, -- Check
-`cep_hospital` VARCHAR(45) NOT NULL, -- Check
+`cep_hospital` VARCHAR(20) NOT NULL, -- Check
 `bairro_hospital` VARCHAR(50) NOT NULL, -- Check
 `cidade_hospital` VARCHAR(50) NOT NULL, -- Check
 `uf_hospital` CHAR(2) NOT NULL -- Check
 );
 
-CREATE TABLE IF NOT EXISTS Especialidade (
+CREATE TABLE IF NOT EXISTS especialidade (
 `id_especialidade` INT AUTO_INCREMENT PRIMARY KEY, 
 `especialidade_medica` VARCHAR(30) NOT NULL, -- Check
 );
 
-CREATE TABLE IF NOT EXISTS Agenda (
+CREATE TABLE IF NOT EXISTS agenda (
 `fk_crm` INT UNSIGNED NOT NULL, 
 `fk_agenda_cnpj_hospital` VARCHAR(18) NOT NULL, 
 `fk_especialidade` INT NOT NULL, 
 `endereco_hospital` VARCHAR(150) NOT NULL, 
 `dia_agenda` DATE,
 `hora_agenda` TIME,
-FOREIGN KEY (`fk_crm`) REFERENCES Medico(`crm`),
-FOREIGN KEY (`fk_cnpj_hospital`) REFERENCES Hospital(`cnpj_hospital`),
-FOREIGN KEY (`fk_especialidade`) REFERENCES Especialidade(`id_especialidade`)
+FOREIGN KEY (`fk_crm`) REFERENCES medico(`crm`),
+FOREIGN KEY (`fk_cnpj_hospital`) REFERENCES hospital(`cnpj_hospital`),
+FOREIGN KEY (`fk_especialidade`) REFERENCES especialidade(`id_especialidade`)
 );
 
-CREATE TABLE IF NOT EXISTS Consulta (
+CREATE TABLE IF NOT EXISTS consulta (
 `id_consulta` INT AUTO_INCREMENT PRIMARY KEY,
 `fk_crm` INT UNSIGNED NOT NULL,
 `nome_medico` VARCHAR(120) NOT NULL,
@@ -81,8 +81,8 @@ CREATE TABLE IF NOT EXISTS Consulta (
 `medicamento` TEXT, -- Check
 `exame` VARCHAR(100), 
 `observacao` TEXT, -- Check
-FOREIGN KEY (`fk_crm`) REFERENCES Medico(`crm`),
-FOREIGN KEY (`fk_consulta_cnpj_hospital`) REFERENCES Hospital(`cnpj_hospital`)
+FOREIGN KEY (`fk_crm`) REFERENCES medico(`crm`),
+FOREIGN KEY (`fk_consulta_cnpj_hospital`) REFERENCES hospital(`cnpj_hospital`)
 );
 
 -- Inserts
