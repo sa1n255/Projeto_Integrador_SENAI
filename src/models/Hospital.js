@@ -1,7 +1,25 @@
-// `cnpj` VARCHAR(19) PRIMARY KEY, -- Check
-// `nomehospital` VARCHAR(100), -- Check
-// `cep` VARCHAR(45),-- Check
-// `bairro` VARCHAR(255),-- Check
-// `municipio` VARCHAR(255),-- Check
-// `cidade` VARCHAR(200),-- Check
-// `estado` VARCHAR(255)-- Check
+const { Model, DataTypes } = require('sequelize');
+
+class Hospital extends Model {
+    static init(sequelize) {
+        super.init({
+            cnpj_hospital: {
+                type: DataTypes.STRING(18),
+                primaryKey: true,
+                unique: true
+            },
+            nome_hospital: DataTypes.STRING(100),
+            endereco_hospital: DataTypes.STRING(150),
+            cep_hospital: DataTypes.STRING(20),
+            bairro_hospital: DataTypes.STRING(50),
+            cidade_hospital: DataTypes.STRING(50),
+            uf_hospital: DataTypes.STRING(2)
+        }, {
+            sequelize,
+            modelName: 'hospital',
+        })
+        return this;
+    }
+}
+
+module.exports = Hospital;
