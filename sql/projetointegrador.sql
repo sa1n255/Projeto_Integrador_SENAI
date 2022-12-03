@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS paciente (
 
 CREATE TABLE IF NOT EXISTS hospital (
 `id_hospital` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-`cnpj_hospital` VARCHAR(19) NOT NULL UNIQUE, 
+`cnpj_hospital` VARCHAR(20) NOT NULL UNIQUE, 
 `nome_hospital` VARCHAR(30) NOT NULL UNIQUE,
 `endereco_hospital` VARCHAR(150) NOT NULL UNIQUE, 
 `cep_hospital` VARCHAR(20) NOT NULL,
