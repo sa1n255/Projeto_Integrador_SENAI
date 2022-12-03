@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS testmed DEFAULT CHARACTER SET utf8mb4 DEFAULT COLL
 USE testmed;
 
 CREATE TABLE IF NOT EXISTS paciente (
-`id_paciente` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+`id_paciente` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 `cpf_paciente` CHAR(14) NOT NULL UNIQUE,
 `rg_paciente` VARCHAR(14),
 `nome_paciente` VARCHAR(120) NOT NULL UNIQUE,
@@ -56,7 +56,7 @@ FOREIGN KEY (`fk_especialidade_2`) REFERENCES especialidade(`especialidade_medic
 );
 
 CREATE TABLE IF NOT EXISTS agenda (
-`id_agenda` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+`id_agenda` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 `fk_nome_medico` VARCHAR(120) NOT NULL, 
 `fk_especialidade` VARCHAR(30) NOT NULL, 
 `fk_nome_hospital` VARCHAR(30) NOT NULL, 
@@ -71,7 +71,7 @@ FOREIGN KEY (`fk_endereco_hospital`) REFERENCES hospital(`endereco_hospital`)
 );
 
 CREATE TABLE IF NOT EXISTS consulta (
-`id_consulta` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+`id_consulta` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 `fk_nome_medico` VARCHAR(120) NOT NULL,
 `fk_nome_paciente` VARCHAR(120) NOT NULL,
 `fk_especialidade` VARCHAR(30) NOT NULL, 
