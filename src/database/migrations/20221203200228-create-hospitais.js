@@ -3,22 +3,29 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         return queryInterface.createTable('hospital', {
-            cnpj_hospital: {
-                type: Sequelize.STRING(18),
+            id_hospital: {
+                type: Sequelize.INTEGER.UNSIGNED,
                 primaryKey: true,
+                autoIncrement: true,
+                allowNull: false
+            },
+            cnpj_hospital: {
+                type: Sequelize.STRING(20),
                 allowNull: false,
                 unique: true,
             },
             nome_hospital: {
                 type: Sequelize.STRING(100),
                 allowNull: false,
+                unique: true,
             },
             endereco_hospital: {
                 type: Sequelize.STRING(150),
                 allowNull: false,
+                unique: true,
             },
             cep_hospital: {
-                type: Sequelize.STRING(15),
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
             bairro_hospital: {

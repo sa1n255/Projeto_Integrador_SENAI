@@ -3,9 +3,13 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         return queryInterface.createTable('paciente', {
+            id_paciente: {
+                type: Sequelize.BIGINT.UNSIGNED,
+                autoIncrement: true,
+                primaryKey: true,
+            },
             cpf_paciente: {
                 type: Sequelize.STRING(14),
-                primaryKey: true,
                 allowNull: false,
                 unique: true,
             },
@@ -15,6 +19,7 @@ module.exports = {
             nome_paciente: {
                 type: Sequelize.STRING(120),
                 allowNull: false,
+                unique: true,
             },
             sexo_paciente: {
                 type: Sequelize.ENUM('H', 'M'),
@@ -45,19 +50,20 @@ module.exports = {
                 type: Sequelize.STRING(50)
             },
             uf_paciente: {
-                type: Sequelize.STRING(2)
+                type: Sequelize.STRING(2),
+                allowNull: false,
             },
             cep_paciente: {
-                type: Sequelize.STRING(9)
+                type: Sequelize.STRING(10)
             },
             email_paciente: {
-                type: Sequelize.STRING(100)
+                type: Sequelize.STRING(120)
             },
             nome_pai: {
-                type: Sequelize.STRING(100)
+                type: Sequelize.STRING(120)
             },
             nome_mae: {
-                type: Sequelize.STRING(100)
+                type: Sequelize.STRING(120)
             },
             created_at: {
                 type: Sequelize.DATE,
