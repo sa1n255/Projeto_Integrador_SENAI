@@ -4,7 +4,7 @@ import PacienteController from '../controllers/PacienteController';
 const router = new Router();
 
 router.get('/', PacienteController.index);
-router.post('/', PacienteController.cadastrar);
+router.post('/', PacienteController.store);
 
 /*
 router.put('/:id', PacienteController.atualizar);

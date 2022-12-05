@@ -4,7 +4,7 @@ import MedicoController from '../controllers/MedicoController';
 const router = new Router();
 
 router.get('/', MedicoController.index);
-router.post('/', MedicoController.cadastrar);
+router.post('/', MedicoController.store);
 
 /*
 router.put('/:id', MedicoController.atualizar);
