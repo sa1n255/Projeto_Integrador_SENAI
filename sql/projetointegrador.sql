@@ -14,17 +14,17 @@ CREATE TABLE IF NOT EXISTS paciente (
 `endereco_paciente` VARCHAR(150),
 `bairro_paciente` VARCHAR(50),
 `cidade_paciente` VARCHAR(50),
-`uf_paciente` CHAR(2), 
-`cep_paciente` CHAR(9),
-`email_paciente` VARCHAR(100),
-`nome_pai` VARCHAR(100),
-`nome_mae` VARCHAR(100) 
+`uf_paciente` CHAR(2) NOT NULL, 
+`cep_paciente` VARCHAR(10),
+`email_paciente` VARCHAR(120),
+`nome_pai` VARCHAR(120),
+`nome_mae` VARCHAR(120) 
 );
 
 CREATE TABLE IF NOT EXISTS hospital (
 `id_hospital` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 `cnpj_hospital` VARCHAR(20) NOT NULL UNIQUE, 
-`nome_hospital` VARCHAR(30) NOT NULL UNIQUE,
+`nome_hospital` VARCHAR(100) NOT NULL UNIQUE,
 `endereco_hospital` VARCHAR(150) NOT NULL UNIQUE, 
 `cep_hospital` VARCHAR(20) NOT NULL,
 `bairro_hospital` VARCHAR(50) NOT NULL,
@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS especialidade (
 
 CREATE TABLE IF NOT EXISTS medico (
 `id_medico` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-`crm` INT UNSIGNED  NOT NULL UNIQUE,
+`crm` INT UNSIGNED NOT NULL UNIQUE,
 `cpf_medico` CHAR(14) NOT NULL UNIQUE, 
 `rg_medico` VARCHAR(14) NOT NULL UNIQUE, 
 `nome_medico` VARCHAR(120) NOT NULL UNIQUE, 
-`sexo_medico` ENUM('H', 'M'), 
+`sexo_medico` ENUM('H', 'M') NOT NULL, 
 `telefone_medico` BIGINT UNSIGNED NOT NULL,
 `email_medico` VARCHAR(120) NOT NULL UNIQUE, 
 `sangue_medico` VARCHAR(3) NOT NULL,  
@@ -61,9 +61,9 @@ CREATE TABLE IF NOT EXISTS agenda (
 `fk_especialidade` VARCHAR(30) NOT NULL, 
 `fk_nome_hospital` VARCHAR(30) NOT NULL, 
 `fk_endereco_hospital` VARCHAR(150) NOT NULL, 
-`dia_semana_agenda` VARCHAR(13),
-`inicio_expediente_agenda` TIME,
-`fim_expediente_agenda` TIME,
+`dia_semana_agenda` VARCHAR(13) NOT NULL,
+`inicio_expediente_agenda` TIME NOT NULL,
+`fim_expediente_agenda` TIME NOT NULL,
 FOREIGN KEY (`fk_nome_medico`) REFERENCES medico(`nome_medico`),
 FOREIGN KEY (`fk_especialidade`) REFERENCES especialidade(`especialidade_medica`),
 FOREIGN KEY (`fk_nome_hospital`) REFERENCES hospital(`nome_hospital`),
