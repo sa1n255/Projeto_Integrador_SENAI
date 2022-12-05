@@ -1,14 +1,31 @@
 const Paciente = require('../models/Paciente');
 
 class PacienteController {
+    // GET 
     async index(req, res) {
         res.render('cadastro', {});
-        //const pacientes = await Paciente.findAll()
-        //res.json(pacientes);
     }
 
-    async cadastrar(req, res) {
-        const {cpf_paciente, rg_paciente, nome_paciente, sexo_paciente, telefone_paciente, celular_paciente, sangue_paciente, nascimento_paciente, endereco_paciente, bairro_paciente, cidade_paciente, uf_paciente, cep_paciente, email_paciente, nome_pai, nome_mae} = req.body;
+    // POST
+    async store(req, res) {
+        const {
+            cpf_paciente,
+            rg_paciente,
+            nome_paciente,
+            sexo_paciente,
+            telefone_paciente,
+            celular_paciente,
+            sangue_paciente,
+            nascimento_paciente,
+            endereco_paciente,
+            bairro_paciente,
+            cidade_paciente,
+            uf_paciente,
+            cep_paciente,
+            email_paciente,
+            nome_pai,
+            nome_mae
+        } = req.body;
 
         console.log(`cpf do Paciente: ${cpf_paciente}`);
         console.log(`RG do Paciente: ${rg_paciente}`);
@@ -27,25 +44,37 @@ class PacienteController {
         console.log(`Pai do Paciente: ${nome_pai}`);
         console.log(`Mãe do Paciente: ${nome_mae}`);
 
-        const novoPaciente = await Paciente.create({
-            cpf_paciente,
-            rg_paciente,
-            nome_paciente,
-            sexo_paciente,
-            telefone_paciente,
-            celular_paciente,
-            sangue_paciente,
-            nascimento_paciente,
-            endereco_paciente,
-            bairro_paciente,
-            cidade_paciente,
-            uf_paciente,
-            cep_paciente,
-            email_paciente,
-            nome_pai,
-            nome_mae
-        })
-        res.json(novoPaciente);
+        try {
+            const newPaciente = await Paciente.create(req.body);
+            return res.status(201).json(newPaciente);
+        } catch (e) {
+            res.status(400).json({
+                errors: e.errors.map((err) => err.message)
+            });
+        }
+    }
+
+    // GET
+    async show(req, res) {
+        const showPacientes = await Paciente.findAll();
+
+        res.status(200).json(showPacientes);
+
+    }
+    // PUT ou PATCH
+    async update(req, res) {
+        try {
+            const updatePaciente = await Paciente.update()
+            return res.status(201).json(updatePaciente);
+        } catch (e) {
+            return res.status(400).json({
+                errors: e.errors.map((err) => err.message)
+            })  
+        }
+    }
+    // DELETE
+    async delete(req, res) {
+        const deletePaciente = await Paciente.destroy();
     }
 }
 
