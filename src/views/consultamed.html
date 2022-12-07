@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/public/images/icons/arpa_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/styleareamed.css" />
+
+    <title>Área Médica</title>
+</head>
+
+<body>
+    <%- include('partials/header.html') %>
+
+
+        <div class="titulo">
+            <h2>Área médica</h2>
+        </div>
+        <select class="selectirar" id="selecionado">
+            <option value="cadastrar">Cadastrar</option>
+            <option value="exibir" selected>Exibir</option>
+        </select>
+        <div id="registroconsulta" class="registroconsulta">
+          <h2>Registro de consultas</h2>
+            <form id="formulario-consultamed" class="formulario-consultamed" action="/consultamed" method="POST">
+                <label for="id">ID da consulta</label>
+                <input type="text" id="consulta" placeholder="Registro de consultas" name="id_consulta" onclick="listatabela()"/>
+                <button type="submit" id="butao">Enviar</button>
+            </form>
+            <table id="table-resultado">
+                <thead>
+                    <th>Nome do Médico</th>
+                    <th>Nome do Paciente</th>
+                    <th>Especialidade</th>
+                    <th>Nome do Hospital</th>
+                    <th>Medicamento</th>
+                    <th>Diagnóstico</th>
+                    <th>Exame</th>
+                    <th>Observação</th>
+                </thead>
+                <tbody id="tbody-resultado">
+                
+                </tbody>
+            </table>
+        </div>
+        <%- include('partials/footer.html') %>
+            <script src="/public/js/area-medicascript.js"></script>
+</body>
+
+</html>

@@ -1,9 +1,3 @@
-
-			const selecionado = document.getElementById("selecionado");
-			selecionado.addEventListener('change', function() {
-			window.location.href="/cadastromed";
-			});
-
 		/*validação do formulario*/
 		const form = document.getElementById("login-form");
 		const input = document.querySelectorAll(".input-form");
@@ -61,3 +55,24 @@
 				removeError(2);
 			}
 		}
+
+/*codigo para ativar a notificação rápida (quando tiver tempo pegar os errors para exibir aqui pelo inner.text)*/
+const btn = document.getElementById("butao");
+const divMessage = document.querySelector(".alert");
+
+const msg = "Cadastro realizado com sucesso!";
+
+function ativar(msg) {
+const message = document.createElement("div");
+message.classList.add("message");
+message.innerText = msg;
+divMessage.appendChild(message);
+
+setTimeout(() => {
+	message.style.display = "none";
+}, 3000);
+}
+
+btn.addEventListener("click", () => {
+ativar(msg);
+});

@@ -20,6 +20,7 @@ import medicoRoutes from './routes/medicoRoutes';
 import pacienteRoutes from './routes/pacienteRoutes';
 import loginRoutes from './routes/loginRoutes';
 import pesquisaRoutes from './routes/pesquisaRoutes';
+import consultamed from './routes/consultamedRoutes';
 import rootRoutes from './routes/rootRoutes';
 
 // Habilitar o JSON do Corpo da requisição
@@ -46,6 +47,7 @@ app.use('/cadastromed', medicoRoutes);
 app.use('/paciente', pacienteRoutes); 
 app.use('/login', loginRoutes); 
 app.use('/pesquisa', pesquisaRoutes); 
+app.use('/consultamed', consultamed); 
 // teste de consumo de API no FE
 app.get('/results', (req, res) => {
     

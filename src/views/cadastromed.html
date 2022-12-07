@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/public/images/icons/arpa_icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/public/css/stylecadastro.css" />
+    <link rel="stylesheet" href="../public/css/stylecadastro.css" />
     <link rel="stylesheet" href="/public/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,10 +18,7 @@
     <%- include('partials/header.html') %>
 
         <div class="titulo">
-            <select id="selecionado">
-                <option value="/cadastro">Cadastro dos Pacientes</option>
-                <option value="/cadastromed" selected>Cadastro do Médico</option>
-            </select>
+            <h2>Cadastrar Médico</h2>
         </div>
 
         <form id="formulario-cadastro" class="formulario-cadastro" action="/cadastromed" method="POST">
@@ -62,10 +59,47 @@
                     <small>mesagem de erro</small>
                 </div>
 
-                <div class="form-esquerda">
-                    <label for="especialidade">Especialidade</label>
-                    <input type="text" id="especialidade" placeholder="Especialidade do Médico" class="input-form"
-                        oninput="especialidadevalidar()" name="especialidade"/>
+                <div class="form-direita">
+                    <label for="especialidade"> Especialidade do Médico </label>
+                    <select autofocus id="especialidade" name="especialidade">
+                        <option value="fisioterapeuta">fisioterapeuta</option>
+                        <option value="alergologita">alergologista</option>
+                        <option value="imunologista">imunologista</option>
+                        <option value="anestesiologia">anestesiologia</option>
+                        <option value="angiologia">angiologia</option>
+                        <option value="cardiologia">cardiologia</option>
+                        <option value="cirurgiao-neurologista">cirurgiao-neurologista</option>
+                        <option value="cirurgiao-do-aparelho-digestivo">cirurgiao-do-aparelho-disgestivo</option>
+                        <option value="coloproctologista">coloproctologista</option>
+                        <option value="cirurgiao-geral">cirurgiao-geral</option>
+                        <option value="cirurgiao-oncologica">cirurgiao-oncologica</option>
+                        <option value="cirurgiao-pediatrica">cirurgiao-pediatrica</option>
+                        <option value="cirurgiao-plastica">cirurgiao-plastica</option>
+                        <option value="cirurgiao-toracica">cirurgiao-toracica</option>
+                        <option value="cirurgiao-vascular">cirurgiao-vascular</option>
+                        <option value="nutricionista">nutricionista</option>
+                        <option value="dermatologista">dermatologista</option>
+                        <option value="endocrinologia">endocrinologia</option>
+                        <option value="ginecologista">ginecologista</option>
+                        <option value="hematologia">hematologia</option>
+                        <option value="homeopatia">homeopatia</option>
+                        <option value="infectologia">infectologia</option>
+                        <option value="mastologia">mastologia</option>
+                        <option value="nefrologia">nefrologia</option>
+                        <option value="neurologista">neurologista</option>
+                        <option value="oftalmologista">oftalmologista</option>
+                        <option value="oncologia">oncologia</option>
+                        <option value="Otorrinolaringologia">Otorrinolaringologia</option>
+                        <option value="Patologia">Patologia</option>
+                        <option value="Patologia clínica">Patologia clínica</option>
+                        <option value="Pediatria">Pediatria</option>
+                        <option value="Pneumologia">Pneumologia</option>
+                        <option value="Psiquiatria">Psiquiatria</option>
+                        <option value="Radiologia">Radiologia</option>
+                        <option value="Radioterapia">Radioterapia</option>
+                        <option value="Reumatologia">Reumatologia</option>
+                        <option value="Reumatologia">Reumatologia</option>
+                    </select>
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -82,6 +116,14 @@
             </div>
 
             <div class="sub-form-direita">
+                <div class="form-direita">
+                    <label for="email">Email</label>
+                    <input class="input-form" type="email" id="email" placeholder="Email" name="email_medico" autocomplete="off" oninput="emailvalidar()"/>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                    <small>mesagem de erro</small>
+                </div>
+
                 <div class="form-direita">
                     <label for="data de nascimento">Data de Nascimento</label>
                     <input type="date" id="datanascimento" placeholder="Data xx/xx/xxxx" name="nascimento_medico"/>
@@ -104,14 +146,14 @@
                 <div class="form-direita">
                     <label for="sanguineo"> Tipo Sanguineo </label>
                     <select autofocus id="sanguineo" name="sangue_medico">
-                        <option value="+A">+A</option>
-                        <option value="-A">-A</option>
-                        <option value="+B">+B</option>
-                        <option value="-B">-B</option>
-                        <option value="+AB">+AB</option>
-                        <option value="+-AB">-AB</option>
-                        <option value="+O">+O</option>
-                        <option value="-O">-O</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
                     </select>
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
@@ -120,8 +162,8 @@
 
                 <div class="form-direita">
                     <label for="senha"> Senha </label>
-                    <input type="number" id="senha" placeholder="Defina a senha para acesso ao sistema"
-                        class="input-form" oninput="senhavalidar()" name="senhamed"/>
+                    <input type="text" id="senha" placeholder="Defina a senha para acesso ao sistema"
+                        id="senha" class="input-form" oninput="senhaValida()" name="senha"/>
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small>mesagem de erro</small>
@@ -130,10 +172,11 @@
                 <button type="submit" id="butao">Enviar</button>
             </div>
         </form>
+        <div class="alert"></div>
 
         <%- include('partials/footer.html') %>
             <script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
-           <script src="/public/js/cadastromedscript.js"></script>
+           <script src="../public/js/cadastromedscript.js"></script>
 </body>
 
 </html>

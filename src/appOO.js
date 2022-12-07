@@ -9,7 +9,7 @@ import cadastroRoutes from './routes/cadastroRoutes';
 import loginRoutes from "./routes/loginRoutes"
 import pesquisaRoutes from './routes/pesquisaRoutes';
 import rootRoutes from './routes/rootRoutes';
-
+import consultamed from "./routes/consultamedRoutes";
 
 const paths = {
     stylePath: path.join(__dirname, 'public'),
@@ -44,6 +44,7 @@ class App {
         this.app.use('/cadastro', cadastroRoutes);
         this.app.use('/login', loginRoutes);
         this.app.use('/pesquisa', pesquisaRoutes);
+        this.app.use("/consultamed", consultamed);
         this.app.use(callbacks.noRoute);
     }
 

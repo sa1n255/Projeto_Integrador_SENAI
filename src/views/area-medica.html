@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/public/images/icons/arpa_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/public/css/style.css" />
-    <link rel="stylesheet" href="/public/css/styleAreaMed.css" />
+    <link rel="stylesheet" href="/public/css/styleareamed.css" />
 
     <title>Área Médica</title>
 </head>
@@ -20,24 +20,42 @@
             <h2>Área médica</h2>
         </div>
         <select class="selectirar" id="selecionado">
-            <option value="cadastrar">Cadastrar</option>
+            <option value="cadastrar" selected>Cadastrar</option>
             <option value="exibir">Exibir</option>
         </select>
         <form id="formulario-areamed" class="formulario-areamed" action="/area-medica" method="POST">
 
             <div class="form-esquerda">
-                <label for="CNPJ"> CNPJ </label>
-                <input type="text" id="cnpj" placeholder="CNPJ do cnpj_hospital" class="input-form" 
-                    oninput="cnpjvalidar()" name="cnpj_hospital"/>
+                <label for="nome"> Nome do Médico </label>
+                <input type="text" id="nome" class="input-form" oninput="nomevalidar()" 
+                    placeholder="Nome do Médico" name="nome_medico"/>
+                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <small>mesagem de erro</small>
+            </div>
+
+            <div class="form-esquerda">
+                <label for="nome"> Nome do Paciente </label>
+                <input type="text" id="nome" class="input-form" oninput="nomevalidar()" 
+                    placeholder="Nome do Paciente" name="nome_paciente"/>
                 <i class="fas fa-exclamation-circle"></i>
                 <i class="fas fa-check-circle"></i>
                 <small>mesagem de erro</small>
             </div>
             
             <div class="form-esquerda">
-                <label for="crm">Crm</label>
-                <input type="number" id="crm" placeholder="Crm do médico" class="input-form"
-                    oninput="crmvalidar()" name="crm"/>
+                <label for="especialidade">Especialidade</label>
+                <input type="text" id="especialidade" placeholder="Especialidade do Médico" class="input-form"
+                    oninput="especialidadevalidar()" name="especialidade"/>
+                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-check-circle"></i>
+                <small>mesagem de erro</small>
+            </div>
+
+            <div class="form-esquerda">
+                <label for="nome"> Nome do Hospital </label>
+                <input type="text" id="nome" class="input-form" oninput="nomevalidar()" 
+                    placeholder="Nome do Hospital" name="nome_hospital"/>
                 <i class="fas fa-exclamation-circle"></i>
                 <i class="fas fa-check-circle"></i>
                 <small>mesagem de erro</small>
@@ -79,26 +97,7 @@
             <button type="submit" id="butao">Enviar</button>
 
         </form>
-        <div id="registroconsulta" class="registroconsulta">
-            <h2>Registro de consultas</h2>
-            <label for="id">ID da consulta</label>
-            <input type="text" id="registro" placeholder="Registro de consultas" name="registro" onclick="listatabela()"/>
-            <button type="submit" id="butao">Enviar</button>
-            <table id="table-resultado">
-                <thead>
-                    <th>CPF</th>
-                    <th>CNPJ</th>
-                    <th>CRM</th>
-                    <th>Diagnóstico</th>
-                    <th>Medicamento</th>
-                    <th>Exame</th>
-                    <th>Observação</th>
-                </thead>
-                <tbody id="tbody-resultado">
-                
-                </tbody>
-            </table>
-        </div>
+        <div class="alert"></div>
         <%- include('partials/footer.html') %>
             <script src="/public/js/area-medicascript.js"></script>
 </body>

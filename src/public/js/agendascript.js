@@ -37,18 +37,19 @@
 
 			let tr = tbody.insertRow();
 
-			let td_crm = tr.insertCell();
-			let td_cnpj = tr.insertCell();
+			let td_nome = tr.insertCell();
 			let td_especialidade = tr.insertCell();
+			let td_hospital = tr.insertCell();
 			let td_endereco = tr.insertCell();
 			let td_dia = tr.insertCell();
-			let td_hora = tr.insertCell();
+			let td_horainicio = tr.insertCell();
+			let td_horafim = tr.insertCell();
 			
-			td_crm.innerText = "12345678";
-			td_cnpj.innerText = "3519956151";
-			td_especialidade.innerText = "cardiologista";
-			td_endereco.innerText = "rua tao jobin";
-			td_dia.innerText = "29/11";
-			td_hora.innerText = "19:47";
-			
+			td_nome.innerText = "Henrique"
+			td_especialidade.innerText = "Cardiologista";
+			td_hospital.innerText = "Miguel couto";
+			td_endereco.innerText = "rua sao julhemar 80";
+			td_dia.innerText = "Quarta";
+			td_horainicio.innerText = "10:00"
+			td_horafim.innerText = "23:00"
 		}
