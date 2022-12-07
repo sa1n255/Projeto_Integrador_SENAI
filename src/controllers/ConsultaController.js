@@ -1,4 +1,4 @@
-class AreaMedicaController{
+class ConsultaController{
     
 }
 
