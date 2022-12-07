@@ -3,7 +3,7 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         return queryInterface.createTable('medico', {
-            id_medico: {
+            id: {
                 type: Sequelize.INTEGER.UNSIGNED,
                 autoIncrement: true,
                 primaryKey: true,
@@ -49,20 +49,9 @@ module.exports = {
                 type: Sequelize.DATEONLY,
                 allowNull: false,
             },
-            fk_especialidade: {
+            especialidade: {
                 type: Sequelize.STRING(30),
                 allowNull: false,
-                references: {
-                    model: 'especialidade',
-                    key: 'especialidade_medica'
-                }
-            },
-            fk_especialidade_2: {
-                type: Sequelize.STRING(30),
-                references: {
-                    model: 'especialidade',
-                    key: 'especialidade_medica'
-                }
             },
             senha: {
                 type: Sequelize.STRING(25),
@@ -79,7 +68,6 @@ module.exports = {
         });
     },
 
-    down: async (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('medico');
-    }
+    down: async (queryInterface) => queryInterface.dropTable('medico')
+
 };

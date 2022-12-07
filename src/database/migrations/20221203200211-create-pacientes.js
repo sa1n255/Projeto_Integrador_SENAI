@@ -3,7 +3,7 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         return queryInterface.createTable('paciente', {
-            id_paciente: {
+            id: {
                 type: Sequelize.BIGINT.UNSIGNED,
                 autoIncrement: true,
                 primaryKey: true,
@@ -76,7 +76,5 @@ module.exports = {
         });
     },
 
-    down: async (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('paciente');
-    }
+    down: async (queryInterface) => queryInterface.dropTable('paciente')
 };

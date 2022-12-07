@@ -5,10 +5,10 @@ const router = new Router();
 
 router.get('/', MedicoController.index);
 router.post('/', MedicoController.store);
+router.get('/mostrar', MedicoController.show);
+router.patch('/', MedicoController.update);
+router.delete('/', MedicoController.delete);
 
 /*
-router.put('/:id', MedicoController.atualizar);
-router.get('/:id', MedicoController.mostrar);
-router.delete('/:id', MedicoController.delete);
 */
 export default router;

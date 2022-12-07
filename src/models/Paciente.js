@@ -20,17 +20,13 @@ class Paciente extends Model {
                     notEmpty: {
                         msg: 'O CPF do Paciente não pode estar vazio'
                     },
-                    max: {
-                        args: 14,
-                        msg: 'O Tamanho do CPF do Paciente é inválido'
-                    },
                 },
             },
             rg_paciente: {
                 type: DataTypes.STRING(14),
                 validate: {
-                    max: {
-                        args: 14,
+                    min: {
+                        args: 12,
                         msg: 'RG inválido'
                     },
                 },
@@ -46,12 +42,6 @@ class Paciente extends Model {
                         args: [10, 120],
                         msg: 'O Nome do Paciente é MUITO grande'
                     },
-                    isLowercase: {
-                        msg: 'O Nome do Paciente deve ser digitado corretamente'
-                    },
-                    isAlpha: {
-                        msg: 'O Nome do Paciente deve conter apenas letras'
-                    },
                     notNull: {
                         msg: 'O Nome do Paciente não pode ser nulo'
                     },
@@ -65,11 +55,9 @@ class Paciente extends Model {
             },
             telefone_paciente: {
                 type: DataTypes.BIGINT.UNSIGNED,
+                allowNull: false,
                 validate: {
-                    isNumeric: {
-                        msg: 'Número de Telefone inválido'
-                    },
-                    isNull: {
+                    notNull: {
                         msg: 'O Telefone do Paciente não pode ser nulo'
                     },
                     notEmpty: {
@@ -131,7 +119,7 @@ class Paciente extends Model {
             cep_paciente: {
                 type: DataTypes.STRING(9),
                 validate: {
-                    max: {
+                    min: {
                         args: 9,
                         msg: 'CEP Inválido'
                     },
@@ -168,6 +156,10 @@ class Paciente extends Model {
             modelName: 'paciente',
         })
         return this;
+    }
+    
+    static associations(models) {
+        this.hasMany(models.Consulta)
     }
 }
 

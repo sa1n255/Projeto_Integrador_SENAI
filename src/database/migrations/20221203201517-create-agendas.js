@@ -3,7 +3,7 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         return queryInterface.createTable('agenda', {
-            id_agenda: {
+            id: {
                 type: Sequelize.INTEGER.UNSIGNED,
                 primaryKey: true,
                 autoIncrement: true,
@@ -16,13 +16,9 @@ module.exports = {
                     key: 'nome_medico'
                 }
             },
-            fk_especialidade: {
+            especialidade: {
                 type: Sequelize.STRING(30),
                 allowNull: false,
-                references: {
-                    model: 'especialidade',
-                    key: 'especialidade_medica'
-                }
             },
             fk_nome_hospital: {
                 type: Sequelize.STRING(30),
@@ -63,7 +59,6 @@ module.exports = {
         });
     },
 
-    down: async (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('agenda');
-    }
+    down: async (queryInterface) => queryInterface.dropTable('agenda')
+
 };

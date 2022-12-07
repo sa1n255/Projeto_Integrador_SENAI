@@ -3,11 +3,10 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         return queryInterface.createTable('hospital', {
-            id_hospital: {
+            id: {
                 type: Sequelize.INTEGER.UNSIGNED,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull: false
             },
             cnpj_hospital: {
                 type: Sequelize.STRING(20),
@@ -51,7 +50,5 @@ module.exports = {
         });
     },
 
-    down: async (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('hospital');
-    }
+    down: async (queryInterface) => queryInterface.dropTable('hospital')
 };

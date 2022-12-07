@@ -5,6 +5,7 @@ class Hospital extends Model {
         super.init({
             cnpj_hospital: {
                 type: DataTypes.STRING(20),
+                allowNull: false,
                 unique: {
                     msg: 'O CNPJ já foi cadastrado no Sistema'
                 },
@@ -26,6 +27,7 @@ class Hospital extends Model {
                 unique: {
                     msg: 'O Nome do Hospital já está cadastrado no Sistema'
                 },
+                allowNull: false,
                 validate: {
                     max: {
                         args: 100,
@@ -44,6 +46,7 @@ class Hospital extends Model {
                 unique: {
                     msg: 'O Endereço já está sendo usado por outro Hospital'
                 },
+                allowNull: false,
                 validate: {
                     max: {
                         args: 150,
@@ -59,6 +62,7 @@ class Hospital extends Model {
             },
             cep_hospital: {
                 type: DataTypes.STRING(9),
+                allowNull: false,
                 validate: {
                     max: {
                         args: 9,
@@ -74,6 +78,7 @@ class Hospital extends Model {
             },
             bairro_hospital: {
                 type: DataTypes.STRING(50),
+                allowNull: false,
                 validate: {
                     max: {
                         args: 50,
@@ -89,6 +94,7 @@ class Hospital extends Model {
             },
             cidade_hospital: {
                 type: DataTypes.STRING(50),
+                allowNull: false,
                 validate: {
                     max: {
                         args: 50,
@@ -116,6 +122,11 @@ class Hospital extends Model {
             modelName: 'hospital',
         })
         return this;
+    }
+
+    static associations(models) {
+        this.hasMany(models.Agenda)
+        this.hasMany(models.Consulta)
     }
 }
 

@@ -5,11 +5,11 @@ const router = new Router();
 
 router.get('/', PacienteController.index);
 router.post('/', PacienteController.store);
+router.get('/mostrar', PacienteController.show);
+router.patch('/', PacienteController.update);
+router.delete('/', PacienteController.delete);
 
 /*
-router.put('/:id', PacienteController.atualizar);
-router.get('/:id', PacienteController.mostrar);
-router.delete('/:id', PacienteController.delete);
 */
 
 export default router;
