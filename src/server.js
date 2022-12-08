@@ -1,12 +1,9 @@
 import dotenv from 'dotenv';
-dotenv.config();
 import express from 'express';
 import { join } from 'path';
 import cors from 'cors';
-import loginRequired from './middlewares/loginRequired';
 const app = express();
 
-import "./database"
 
 // Caminhos de Estilo e views
 const paths = {
@@ -14,15 +11,18 @@ const paths = {
     views: join(__dirname, 'views')
 }
 // Import de Rotas
+import loginRequired from './middlewares/authRequired';
+import "./database"
 import agendaRoutes from './routes/agendaRoutes';
 import areamedicaRoutes from './routes/areamedicaRoutes';
 import medicoRoutes from './routes/medicoRoutes';
 import pacienteRoutes from './routes/pacienteRoutes';
 import loginRoutes from './routes/loginRoutes';
-import pesquisaRoutes from './routes/pesquisaRoutes';
+import hospitalRoutes from './routes/hospitalRoutes';
 import consultamed from './routes/consultamedRoutes';
-import rootRoutes from './routes/rootRoutes';
+import homeRoutes from './routes/homeRoutes';
 
+dotenv.config();
 // Habilitar o JSON do Corpo da requisição
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -35,24 +35,19 @@ app.set('views', paths.views);
 app.use(loginRequired);
 app.use(cors());
 
-const root = (req, res) => res.render('index', {});
+
 const noRoute = (req, res, next) => res.status(404).render('404');
 
 // Rotas
 
-app.get('/', rootRoutes); 
+app.use('/', homeRoutes); 
 app.use('/agenda', agendaRoutes); 
 app.use('/area-medica', areamedicaRoutes);
 app.use('/cadastromed', medicoRoutes); 
 app.use('/paciente', pacienteRoutes); 
 app.use('/login', loginRoutes); 
-app.use('/pesquisa', pesquisaRoutes); 
+app.use('/hospital', hospitalRoutes); 
 app.use('/consultamed', consultamed); 
-// teste de consumo de API no FE
-app.get('/results', (req, res) => {
-    
-    res.json([{idade: 12, nome: 'Samuel'}])
-})
 app.use(noRoute); 
-// Escuta do Servidor Local
+
 app.listen(8080, () => console.log(`Servidor local ativo em http://localhost:8080`));

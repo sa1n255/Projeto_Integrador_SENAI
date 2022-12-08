@@ -32,11 +32,6 @@ CREATE TABLE IF NOT EXISTS hospital (
 `uf_hospital` CHAR(2) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS especialidade (
-`id_especialidade` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-`especialidade_medica` VARCHAR(30) NOT NULL UNIQUE
-);
-
 CREATE TABLE IF NOT EXISTS medico (
 `id_medico` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 `crm` INT UNSIGNED NOT NULL UNIQUE,
@@ -48,24 +43,20 @@ CREATE TABLE IF NOT EXISTS medico (
 `email_medico` VARCHAR(120) NOT NULL UNIQUE, 
 `sangue_medico` VARCHAR(3) NOT NULL,  
 `nascimento_medico` DATE NOT NULL, 
-`fk_especialidade` VARCHAR(30) NOT NULL,
-`fk_especialidade_2` VARCHAR(30), 
-`senha` VARCHAR(25) NOT NULL, 
-FOREIGN KEY (`fk_especialidade`) REFERENCES especialidade(`especialidade_medica`), 
-FOREIGN KEY (`fk_especialidade_2`) REFERENCES especialidade(`especialidade_medica`) 
+`especialidade` VARCHAR(30) NOT NULL,
+`senha` VARCHAR(25) NOT NULL,
 );
 
 CREATE TABLE IF NOT EXISTS agenda (
 `id_agenda` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 `fk_nome_medico` VARCHAR(120) NOT NULL, 
-`fk_especialidade` VARCHAR(30) NOT NULL, 
+`especialidade` VARCHAR(30) NOT NULL, 
 `fk_nome_hospital` VARCHAR(30) NOT NULL, 
 `fk_endereco_hospital` VARCHAR(150) NOT NULL, 
 `dia_semana_agenda` VARCHAR(13) NOT NULL,
 `inicio_expediente_agenda` TIME NOT NULL,
 `fim_expediente_agenda` TIME NOT NULL,
 FOREIGN KEY (`fk_nome_medico`) REFERENCES medico(`nome_medico`),
-FOREIGN KEY (`fk_especialidade`) REFERENCES especialidade(`especialidade_medica`),
 FOREIGN KEY (`fk_nome_hospital`) REFERENCES hospital(`nome_hospital`),
 FOREIGN KEY (`fk_endereco_hospital`) REFERENCES hospital(`endereco_hospital`)
 );
@@ -74,7 +65,7 @@ CREATE TABLE IF NOT EXISTS consulta (
 `id_consulta` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 `fk_nome_medico` VARCHAR(120) NOT NULL,
 `fk_nome_paciente` VARCHAR(120) NOT NULL,
-`fk_especialidade` VARCHAR(30) NOT NULL, 
+`especialidade` VARCHAR(30) NOT NULL, 
 `fk_nome_hospital` VARCHAR(30) NOT NULL, 
 `dia_consulta` DATE NOT NULL, 
 `hora_consulta` TIME NOT NULL, 
@@ -84,6 +75,5 @@ CREATE TABLE IF NOT EXISTS consulta (
 `observacao` TEXT, 
 FOREIGN KEY (`fk_nome_medico`) REFERENCES medico(`nome_medico`),
 FOREIGN KEY (`fk_nome_paciente`) REFERENCES paciente(`nome_paciente`),
-FOREIGN KEY (`fk_especialidade`) REFERENCES especialidade(`especialidade_medica`),
 FOREIGN KEY (`fk_nome_hospital`) REFERENCES hospital(`nome_hospital`)
 );

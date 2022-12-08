@@ -8,14 +8,14 @@ const Agenda = require('../models/Agenda');
 const Consulta = require('../models/Consulta');
 
 const connection = new Sequelize(dbConfig);
-Paciente.init(connection)
-Hospital.init(connection)
-Medico.init(connection)
-Agenda.init(connection)
-Consulta.init(connection)
-// const models = [Paciente, Hospital, Medico, Agenda, Consulta]
+// Paciente.init(connection)
+// Hospital.init(connection)
+// Medico.init(connection)
+// Agenda.init(connection)
+// Consulta.init(connection)
+const models = [Paciente, Hospital, Medico, Agenda, Consulta]
 
-// models.forEach((model) => model.init(connection));
+models.forEach((model) => model.init(connection));
 
 
 module.exports = connection;
