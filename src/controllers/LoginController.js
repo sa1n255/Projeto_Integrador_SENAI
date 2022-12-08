@@ -1,9 +1,9 @@
 class LoginController{
-    async get(req, res) {
+    index(req, res) {
         res.render("login", {});
     }
 
-    async post(req, res) {
+    post(req, res) {
         const entrar = {
             crm: req.body.crm,
             password: req.body.password
