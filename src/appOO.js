@@ -11,6 +11,7 @@ import pesquisaRoutes from './routes/pesquisaRoutes';
 import rootRoutes from './routes/rootRoutes';
 import consulta from "./routes/consultamedRoutes";
 import mostrarpaciente from "./routes/mostrarpacienteRoutes";
+import mostrarmedicos from "./routes/mostrarmedicosRoutes";
 
 const paths = {
     stylePath: path.join(__dirname, 'public'),
@@ -46,7 +47,8 @@ class App {
         this.app.use('/login', loginRoutes);
         this.app.use('/pesquisa', pesquisaRoutes);
         this.app.use("/consulta", consulta);
-        this.app.use("/mostrarpaciente", mostrarpaciente)
+        this.app.use("/mostrarpaciente", mostrarpaciente);
+        this.app.use("/mostrarmedicos", mostrarmedicos);
         this.app.use(callbacks.noRoute);
     }
 

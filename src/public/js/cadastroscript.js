@@ -107,7 +107,7 @@ function listatabela(){
 	let td_sexo =tr.insertCell();
 	let td_sanguineo =tr.insertCell();
 	let td_unidade_federeal =tr.insertCell();
-  
+	/*
 	 td_nome_medico.innerText = "henrique";
-
+	*/
   }

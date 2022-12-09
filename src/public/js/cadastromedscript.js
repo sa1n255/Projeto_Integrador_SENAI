@@ -126,5 +126,34 @@
             
        }
 
-       
+    /*mudar página*/
+    const selecionado = document.getElementById("selecionado");
+    selecionado.addEventListener("change", function () {
+    if (selecionado.value == "cadastrar"){
+    window.location.href = "/cadastromed";
+    }else{ 
+    window.location.href = "/mostrarmedicos";
+    }
+    });
+    /*função da tabela */
+    function listatabela(){
+        let tbody = document.getElementById("tbody-resultado");
+    
+        let tr = tbody.insertRow();
+    
+        let td_nome = tr.insertCell();
+        let td_crm = tr.insertCell();
+        let td_rg = tr.insertCell();
+        let td_cpf = tr.insertCell();
+        let td_especialidade = tr.insertCell();
+        let td_telefone = tr.insertCell();
+        let td_email = tr.insertCell();
+        let td_nascimento = tr.insertCell();
+        let td_sexo =tr.insertCell();
+        let td_tiposanguineo =tr.insertCell();
+        let td_senha =tr.insertCell();
+        /*
+        td_nome_medico.innerText = "henrique";
+        */
+    }
     

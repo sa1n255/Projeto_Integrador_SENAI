@@ -17,7 +17,7 @@
 
 
         <div class="titulo">
-            <h2>Cadastro dos Pacientes</h2>
+            <h2>Cadastrar Médicos</h2>
         </div>
         <select class="selectirar" id="selecionado">
             <option value="cadastrar">Cadastrar</option>
@@ -25,29 +25,24 @@
         </select>
         <div id="registroconsulta" class="registroconsulta">
           <h2>Registro de consultas</h2>
-            <form id="formulario-mostrarpaciente" class="formulario-mostrarpaciente" action="/mostrarpaciente" method="POST">
-                <label for="cpf">CPF do paciente</label>
-                <input type="text" id="consulta" placeholder="identificação do paciente" name="id_paciente"/>
+            <form id="formulario-mostrarmedicos" class="formulario-mostrarmedicos" action="/mostrarmedicos" method="POST">
+                <label for="crm">CRM do Médico</label>
+                <input type="text" id="consulta" placeholder="CRM do Médico" name="crm"/>
                 <button type="submit" id="butao" onclick="listatabela()">Enviar</button>
             </form>
             <table id="table-resultado">
                 <thead>
                     <th>Nome</th>
-                    <th>CPF</th>
+                    <th>CRM</th>
                     <th>RG</th>
-                    <th>Email</th>
-                    <th>CEP</th>
-                    <th>Endereço</th>
-                    <th>Bairro</th>
-                    <th>Cidade</th>
-                    <th>Nome do pai</th>
-                    <th>Nome da mãe</th>
-                    <th>Nascimento</th>
+                    <th>CPF</th>
+                    <th>Especialidade</th>
                     <th>Telefone</th>
-                    <th>Celular</th>
+                    <th>Email</th>
+                    <th>Nascimento</th>
                     <th>Sexo</th>
-                    <th>Tipo sanguineo</th>
-                    <th>Unidade federal</th>
+                    <th>Tipo Sanguineo</th>
+                    <th>Senha</th>
                 </thead>
                 <tbody id="tbody-resultado">
                 
@@ -55,6 +50,6 @@
             </table>
         </div>
         <%- include('partials/footer.html') %>
-        <script src="/public/js/cadastroscript.js"></script>
+        <script src="/public/js/cadastromedscript.js"></script>
 </body>
 </html>
