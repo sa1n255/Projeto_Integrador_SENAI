@@ -19,7 +19,8 @@ import medicoRoutes from './routes/medicoRoutes';
 import pacienteRoutes from './routes/pacienteRoutes';
 import loginRoutes from './routes/loginRoutes';
 import hospitalRoutes from './routes/hospitalRoutes';
-import consultamed from './routes/consultamedRoutes';
+import consulta from './routes/consultamedRoutes';
+import mostrarpaciente from "./routes/mostrarpacienteRoutes";
 import homeRoutes from './routes/homeRoutes';
 
 dotenv.config();
@@ -47,7 +48,8 @@ app.use('/cadastromed', medicoRoutes);
 app.use('/paciente', pacienteRoutes); 
 app.use('/login', loginRoutes); 
 app.use('/hospital', hospitalRoutes); 
-app.use('/consultamed', consultamed); 
+app.use('/consulta', consulta);
+app.use('/mostrarpaciente', mostrarpaciente) 
 app.use(noRoute); 
 
 app.listen(8080, () => console.log(`Servidor local ativo em http://localhost:8080`));

@@ -189,6 +189,47 @@
 }
 */
 
+.formulario-mostrarpaciente button {
+	background-color: #0a20a1;
+	border: 2px solid #0b1447;
+	color: #fff;
+	font-size: 20px;
+	width: 630px;
+	border-radius: 10px;
+	padding: 10px;
+	}
+
+	.registroconsulta label{
+	display: inline-block;
+	margin-bottom: 5px;
+	padding-left: 6px; 
+	}
+	.registroconsulta input{
+	border: 2px solid #1d1a1a;
+	display: block;
+	border-radius: 10px;
+	font-size: 14px;
+	width: 150px;
+	padding: 10px;
+	margin-bottom: 5px;
+	margin-left: 2px;
+	}
+	.registroconsulta button{
+		background-color: #0a20a1;
+		border: 2px solid #0b1447;
+		color: #fff;
+		font-size: 15px;
+		width: 130px;
+		border-radius: 10px;
+		padding: 2px;
+		margin-left: 2px;
+	}
+	.registroconsulta table{
+		margin-top: 5px;
+	}
+	.registroconsulta h2 {
+		margin-left: 2px;
+	}
 .header-list #cadastro a{
   color: #000000;
 }
@@ -235,3 +276,20 @@
 	}
   }
   
+/*parte da tabela*/
+table{
+	font-size: 15px;
+	color: rgb(0, 0, 0);
+	border: 5px solid #6f0000;
+	box-shadow: 0px 0px 3px #000;
+	border-collapse: collapse;
+	}
+
+	td,th{
+	padding: 2px 5px;
+	font-weight: normal;
+	width: 300px;
+	text-align: center;
+	border-right: 5px solid #6f0000;
+	border-bottom: 3px solid #6f0000;
+	}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/public/images/icons/arpa_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/stylecadastro.css" />
+
+    <title>Área Médica</title>
+</head>
+
+<body>
+    <%- include('partials/header.html') %>
+
+
+        <div class="titulo">
+            <h2>Cadastro dos Pacientes</h2>
+        </div>
+        <select class="selectirar" id="selecionado">
+            <option value="cadastrar">Cadastrar</option>
+            <option value="exibir" selected>Exibir</option>
+        </select>
+        <div id="registroconsulta" class="registroconsulta">
+          <h2>Registro de consultas</h2>
+            <form id="formulario-mostrarpaciente" class="formulario-mostrarpaciente" action="/mostrarpaciente" method="POST">
+                <label for="cpf">CPF do paciente</label>
+                <input type="text" id="consulta" placeholder="identificação do paciente" name="id_paciente" onclick="listatabela()"/>
+                <button type="submit" id="butao">Enviar</button>
+            </form>
+            <table id="table-resultado">
+                <thead>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>RG</th>
+                    <th>Email</th>
+                    <th>CEP</th>
+                    <th>Endereço</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>Nome do pai</th>
+                    <th>Nome da mãe</th>
+                    <th>Nascimento</th>
+                    <th>Telefone</th>
+                    <th>Celular</th>
+                    <th>Sexo</th>
+                    <th>Tipo sanguineo</th>
+                    <th>Unidade federal</th>
+                </thead>
+                <tbody id="tbody-resultado">
+                
+                </tbody>
+            </table>
+        </div>
+        <%- include('partials/footer.html') %>
+        <script src="/public/js/cadastroscript.js"></script>
+</body>
+</html>

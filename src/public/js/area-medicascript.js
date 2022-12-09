@@ -71,7 +71,7 @@ selecionado.addEventListener("change", function () {
 if (selecionado.value == "cadastrar"){
   window.location.href = "/area-medica";
 }else{ 
-  window.location.href = "/consultamed";
+  window.location.href = "/consulta";
 }
 });
 /*codigo para ativar a notificação rápida (quando tiver tempo pegar os errors para exibir aqui pelo inner.text)*/

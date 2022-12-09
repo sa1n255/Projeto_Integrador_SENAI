@@ -164,15 +164,6 @@
 	.registroconsulta h2 {
 		margin-left: 2px;
 	}
-	.selectirar{
-		border-radius: 5px;
-		background-color: #0a20a1;
-		border: 2px solid #0b1447;
-		width: 100px;
-		font-size: 15px;
-		color: #fff;
-		margin-left: 3px;
-	}
 	/* Error and Success */
 	/*.form-controle.success input {
 	border-color: #2ecc71;
