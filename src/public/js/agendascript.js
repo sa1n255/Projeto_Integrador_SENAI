@@ -44,12 +44,7 @@
 			let td_dia = tr.insertCell();
 			let td_horainicio = tr.insertCell();
 			let td_horafim = tr.insertCell();
-			
+		/*	
 			td_nome.innerText = "Henrique"
-			td_especialidade.innerText = "Cardiologista";
-			td_hospital.innerText = "Miguel couto";
-			td_endereco.innerText = "rua sao julhemar 80";
-			td_dia.innerText = "Quarta";
-			td_horainicio.innerText = "10:00"
-			td_horafim.innerText = "23:00"
+		*/
 		}

@@ -55,15 +55,9 @@ function listatabela(){
   let td_diagnostico = tr.insertCell();
   let td_exame = tr.insertCell();
   let td_observacao = tr.insertCell();
-
+  /*
    td_nome_medico.innerText = "henrique";
-   td_nome_paciente.innerText = "samuel";
-   td_especialidade.innerText = "cardiologia";
-   td_nome_hospital.innerText = "roberto gil";
-   td_medicamento.innerText = "bezentacil";
-   td_diagnostico.innerText = "o cara ta passando mal! socoroo aaaaaaaaaaaaaaaaaaa";
-   td_exame.innerText = "dedada do novembro azulaaaaaaaaaaaaaaaaaaaaaa";
-   td_observacao.innerText = "o cara muito malaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+  */
 }
 
 const selecionado = document.getElementById("selecionado");
