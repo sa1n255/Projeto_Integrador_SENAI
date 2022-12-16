@@ -1,5 +1,4 @@
 # Projeto Integrador do SENAI
 
-## npm install --save-dev nodemon
-
-## Dependencias: ejs, express, mysql2, sequelize
+## OBS
+Esse projeto é um protótipo que precisa de aprimoramentos
